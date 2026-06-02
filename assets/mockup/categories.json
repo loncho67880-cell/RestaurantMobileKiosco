@@ -1,0 +1,581 @@
+[
+  {
+    "id": "a239ec89-a4af-4497-bd71-29958322a2f2",
+    "name": "Carnes",
+    "order": 1,
+    "dishes": [
+      {
+        "id": "dc2bdd56-b50b-4bd5-97b4-e373e1a09ca4",
+        "name": "Bistec",
+        "description": "Bistec de res con papas fritas y ensalada",
+        "price": 25000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK1qJqyr4ToLgB1OFc0djk0qDs2-uPujB5tA&s",
+        "categoryId": "a239ec89-a4af-4497-bd71-29958322a2f2",
+        "additions": [
+          {
+            "id": "5aa53d0a-f311-4801-a5b0-79ea3a0c269f",
+            "name": "Papas",
+            "price": 3000
+          },
+          {
+            "id": "71b67919-939d-43a0-be32-9d18c6714bc6",
+            "name": "Guacamole",
+            "price": 4000
+          }
+        ]
+      },
+      {
+        "id": "a6d1ad4b-012a-4641-b7d7-12f5b74def71",
+        "name": "Churrasco",
+        "description": "Churrasco a la parrilla con chimichurri",
+        "price": 32000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2rzwPO0d6jnHXkoFNswnxSMgCDIiDfNibyw&s",
+        "categoryId": "a239ec89-a4af-4497-bd71-29958322a2f2",
+        "additions": [
+          {
+            "id": "754586e1-551e-4aa3-9090-dca7093bece1",
+            "name": "Chimichurri Extra",
+            "price": 1500
+          }
+        ]
+      },
+      {
+        "id": "0eae4f27-4039-4645-ac31-8237b4791a5c",
+        "name": "Lomo Saltado",
+        "description": "Lomo saltado estilo tradicional",
+        "price": 28000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe4CyxSfQG0Bvp6Y_Hq5xQW6jrSQJ8QMSKUA&s",
+        "categoryId": "a239ec89-a4af-4497-bd71-29958322a2f2",
+        "additions": [
+          {
+            "id": "55534e1f-fa82-41fb-bab5-966655fb4cce",
+            "name": "Yuca Frita",
+            "price": 3000
+          }
+        ]
+      },
+      {
+        "id": "272ca52c-9b3a-436e-8b76-721f2301661c",
+        "name": "Pollo a la Brasa",
+        "description": "Pollo a la brasa con papas y ensalada",
+        "price": 22000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4xjSVGq6JjgMVM57x6l6JLQqMBXNUghmIzw&s",
+        "categoryId": "a239ec89-a4af-4497-bd71-29958322a2f2",
+        "additions": [
+          {
+            "id": "9eebe37f-e55d-4dbd-b089-0b1b58f76788",
+            "name": "Salsa Huancaina",
+            "price": 1200
+          }
+        ]
+      },
+      {
+        "id": "71667c34-cbc9-4074-bf41-9e472b97afbb",
+        "name": "Costillas BBQ",
+        "description": "Costillas de cerdo en salsa BBQ",
+        "price": 35000,
+        "imageUrl": "https://cdn7.kiwilimon.com/recetaimagen/24882/960x640/20566.jpg.jpg",
+        "categoryId": "a239ec89-a4af-4497-bd71-29958322a2f2",
+        "additions": [
+          {
+            "id": "107c63a4-e354-4fe0-bcf2-552406a1fbf5",
+            "name": "Papas Asadas",
+            "price": 3000
+          }
+        ]
+      },
+      {
+        "id": "4a180323-911f-433c-a609-12ee56822568",
+        "name": "Entrecot",
+        "description": "Entrecot de res madurado con mantequilla de ajo",
+        "price": 36000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBpyjV-AHIAi8GKLSCVLEtYQlbNcn1BDPwAQ&s",
+        "categoryId": "a239ec89-a4af-4497-bd71-29958322a2f2",
+        "additions": []
+      },
+      {
+        "id": "40c807d5-bd19-4a18-97a6-d413d18ba532",
+        "name": "Hamburguesa Especial",
+        "description": "Hamburguesa con doble carne, queso y bacon",
+        "price": 18000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfuG52wbH4WbN1ux5glSSfVHaSWkDmswTu_Q&s",
+        "categoryId": "a239ec89-a4af-4497-bd71-29958322a2f2",
+        "additions": [
+          {
+            "id": "d91286b0-1ea6-4610-8738-2cd1ad9caa27",
+            "name": "Queso Extra",
+            "price": 1500
+          },
+          {
+            "id": "0adc41c1-20e5-4d63-8621-5ad37349dd8e",
+            "name": "Bacon",
+            "price": 2000
+          }
+        ]
+      },
+      {
+        "id": "59580ad6-1ad0-44b5-8774-9eea32440dc3",
+        "name": "Steak Ranchero",
+        "description": "Steak con salsa ranchera",
+        "price": 30000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCrLoA3zkr19jOi8HfY5V2CSyPQt1c1seeEA&s",
+        "categoryId": "a239ec89-a4af-4497-bd71-29958322a2f2",
+        "additions": []
+      },
+      {
+        "id": "8bdf4292-8e77-42f4-8b4a-9dfcfa570c4a",
+        "name": "Chuleta Ahumada",
+        "description": "Chuleta de cerdo ahumada con glaseado",
+        "price": 27000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTA1ahx8PNqZWlKfMgbEl_fTHtWZp4hQp585w&s",
+        "categoryId": "a239ec89-a4af-4497-bd71-29958322a2f2",
+        "additions": []
+      },
+      {
+        "id": "125efcb1-5d2f-4bac-bad8-1f8a8b8a5a21",
+        "name": "Punta de Anca",
+        "description": "Punta de anca a la parrilla",
+        "price": 34000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA0Bk9cSdn_Hp-DRaaN2uFgs53Wzcdj07ysg&s",
+        "categoryId": "a239ec89-a4af-4497-bd71-29958322a2f2",
+        "additions": [
+          {
+            "id": "2bcb6445-7cca-4ab8-934b-e21c905f6e56",
+            "name": "Salsa Chimichurri",
+            "price": 1500
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "10abea8c-d1f7-416d-aab2-7374b310f1de",
+    "name": "Sopas",
+    "order": 2,
+    "dishes": [
+      {
+        "id": "acf3ad8d-e9ec-4f8b-8946-1d49828b8fe9",
+        "name": "Sopa de Pollo",
+        "description": "Sopa tradicional con fideos y verduras",
+        "price": 12000,
+        "imageUrl": "https://jetextramar.com/wp-content/uploads/2021/09/receta-fideo-grueso-empresa-de-alimentos-700x525.jpg",
+        "categoryId": "10abea8c-d1f7-416d-aab2-7374b310f1de",
+        "additions": [
+          {
+            "id": "c1007d75-d8a6-45c1-ba77-8a96d8b19378",
+            "name": "Ají",
+            "price": 500
+          }
+        ]
+      },
+      {
+        "id": "f5f2a91e-dd63-4761-a00a-da173aab8ae6",
+        "name": "Sopa de Mariscos",
+        "description": "Caldo de mariscos con toque de cilantro",
+        "price": 18000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqjWkw3rpQUz7yz52NkDUau0tpcOEj74PnwA&s",
+        "categoryId": "10abea8c-d1f7-416d-aab2-7374b310f1de",
+        "additions": []
+      },
+      {
+        "id": "7b74d784-4119-4403-8871-27ddbf2f05d9",
+        "name": "Ajiaco",
+        "description": "Sopa cremosa con pollo y verduras",
+        "price": 15000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKqXlW19oJKe7kvZxkmqreNPHy_9nvbOTGLQ&s",
+        "categoryId": "10abea8c-d1f7-416d-aab2-7374b310f1de",
+        "additions": []
+      },
+      {
+        "id": "b84978c3-cef7-4d5d-a21a-de7d577b0d8b",
+        "name": "Minestrone",
+        "description": "Sopa italiana con verduras y pasta",
+        "price": 14000,
+        "imageUrl": "https://veggiefestchicago.org/es/recipe/minestrone-soup/",
+        "categoryId": "10abea8c-d1f7-416d-aab2-7374b310f1de",
+        "additions": []
+      },
+      {
+        "id": "e8d7524e-a615-499e-873b-de50e7aa4eb8",
+        "name": "Sancocho",
+        "description": "Sancocho tradicional con yuca y plátano",
+        "price": 16000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcviHPQKH-W5V6GB238U_qOdTSf7hdUiR9gg&s",
+        "categoryId": "10abea8c-d1f7-416d-aab2-7374b310f1de",
+        "additions": []
+      },
+      {
+        "id": "08c7b7c2-d3ce-4f72-b8ff-e7d6c8e79ea3",
+        "name": "Crema de Tomate",
+        "description": "Crema suave de tomate con albahaca",
+        "price": 11000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1SusAzat-TTJIfy-bcyupIZlf2c8j6WEQyA&s",
+        "categoryId": "10abea8c-d1f7-416d-aab2-7374b310f1de",
+        "additions": [
+          {
+            "id": "ec597373-7567-4d44-b34f-b759a8cf2fc4",
+            "name": "Croutons",
+            "price": 800
+          }
+        ]
+      },
+      {
+        "id": "359b49fc-b0ca-4b42-ab01-976eacf67fb0",
+        "name": "Caldo de Res",
+        "description": "Caldo de res con verduras",
+        "price": 15000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsTAz4q3XmtgsiOmJVlW9hl_G74UkMsU27Hg&s",
+        "categoryId": "10abea8c-d1f7-416d-aab2-7374b310f1de",
+        "additions": []
+      },
+      {
+        "id": "5412dae1-96ff-4f54-a8da-303064148671",
+        "name": "Sopa de Verduras",
+        "description": "Sopa ligera de verduras de temporada",
+        "price": 10000,
+        "imageUrl": "https://comedera.com/wp-content/uploads/sites/9/2013/05/sopa-de-verduras-1.jpg?w=500&h=500&crop=1",
+        "categoryId": "10abea8c-d1f7-416d-aab2-7374b310f1de",
+        "additions": []
+      },
+      {
+        "id": "a014cf4f-87df-4551-a685-7525d4d6f7a6",
+        "name": "Ramen",
+        "description": "Ramen con huevo y cerdo",
+        "price": 20000,
+        "imageUrl": "https://sudachirecipes.com/wp-content/uploads/2025/07/shoyu-ramen-new-thumb-500x500.png",
+        "categoryId": "10abea8c-d1f7-416d-aab2-7374b310f1de",
+        "additions": [
+          {
+            "id": "e4bae8ed-d847-4002-9cfd-6736ec419032",
+            "name": "Huevo Extra",
+            "price": 1200
+          }
+        ]
+      },
+      {
+        "id": "bbaa4e1d-9554-4ab9-9212-859c4319d8bb",
+        "name": "Sopa de Lentejas",
+        "description": "Sopa nutritiva de lentejas",
+        "price": 9000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVcbOuTPA0vIliy1e6cnld-L4FjfZa2Pezfw&s",
+        "categoryId": "10abea8c-d1f7-416d-aab2-7374b310f1de",
+        "additions": []
+      }
+    ]
+  },
+  {
+    "id": "33600cb8-ae87-4a5c-ba1e-fdb83cf34377",
+    "name": "Pasta",
+    "order": 3,
+    "dishes": [
+      {
+        "id": "1b1ea63b-c277-4301-bf37-c82cb8fd588f",
+        "name": "Pasta Alfredo",
+        "description": "Pasta con salsa blanca y champiñones",
+        "price": 18000,
+        "imageUrl": "https://images.aws.nestle.recipes/original/f627203bc885c4c644e29fd9846fed11_imagen9.jpg",
+        "categoryId": "33600cb8-ae87-4a5c-ba1e-fdb83cf34377",
+        "additions": [
+          {
+            "id": "41a08012-8df0-43e7-8f93-fa8467ba286b",
+            "name": "Queso Extra",
+            "price": 2000
+          }
+        ]
+      },
+      {
+        "id": "9e315180-0617-458c-bce6-70de1c47ba23",
+        "name": "Pasta Bolognesa",
+        "description": "Pasta con salsa de carne casera",
+        "price": 19000,
+        "imageUrl": "https://www.unileverfoodsolutions.com.co/dam/global-ufs/mcos/nola/colombia/calcmenu/recipes/CO-recipes/pasta-dishes/pasta-en-salsa-bolognesa/main-header.jpg",
+        "categoryId": "33600cb8-ae87-4a5c-ba1e-fdb83cf34377",
+        "additions": [
+          {
+            "id": "f0a46933-2241-444e-8ab4-01888728e86b",
+            "name": "Pan Ajo",
+            "price": 1000
+          }
+        ]
+      },
+      {
+        "id": "bf988f10-640e-4884-abcd-b80951a8e0c9",
+        "name": "Pasta Carbonara",
+        "description": "Pasta con salsa carbonara y tocineta",
+        "price": 19500,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRw1w3AqIw9tXmWuAPVIpW-pinM279ffePwWQ&s",
+        "categoryId": "33600cb8-ae87-4a5c-ba1e-fdb83cf34377",
+        "additions": [
+          {
+            "id": "5efac7b5-e9d8-41c7-a90f-31d2d98b17ab",
+            "name": "Tocineta Extra",
+            "price": 3000
+          }
+        ]
+      },
+      {
+        "id": "0233f210-8c3e-4e31-a01c-5db080ac3a94",
+        "name": "Ravioli",
+        "description": "Raviolis rellenos de ricotta",
+        "price": 20000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS66r344RxGXngxFfI-imAsXEyMwt28yn01_Q&s",
+        "categoryId": "33600cb8-ae87-4a5c-ba1e-fdb83cf34377",
+        "additions": []
+      },
+      {
+        "id": "d79bb865-37d1-4ab4-a124-a0e102bc2367",
+        "name": "Lasagna",
+        "description": "Lasagna casera de carne",
+        "price": 21000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr_k8gnCbVpwyEueEO2i2cFSapnUCQz57FPQ&s",
+        "categoryId": "33600cb8-ae87-4a5c-ba1e-fdb83cf34377",
+        "additions": []
+      },
+      {
+        "id": "8ef262a7-a04d-4cf2-a713-010414fb71c9",
+        "name": "Penne Arrabiata",
+        "description": "Pasta picante con tomate",
+        "price": 17000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS019-HD-FpnU5U9q83LDIIVUyy2H25ptkU9w&s",
+        "categoryId": "33600cb8-ae87-4a5c-ba1e-fdb83cf34377",
+        "additions": []
+      },
+      {
+        "id": "957cbc2f-a3a4-41ec-8405-a610b7e0a769",
+        "name": "Spaghetti con Albóndigas",
+        "description": "Spaghetti con albóndigas caseras",
+        "price": 20000,
+        "imageUrl": "https://mylatinatable.com/wp-content/uploads/2016/03/spaguetti-and-meatballs-2-1024x671.jpg",
+        "categoryId": "33600cb8-ae87-4a5c-ba1e-fdb83cf34377",
+        "additions": []
+      },
+      {
+        "id": "5d61b26b-43b1-4976-92e9-5fbc140f21dc",
+        "name": "Fettuccine Pesto",
+        "description": "Fettuccine con pesto de albahaca",
+        "price": 18500,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhIGXgZIcha1jrqA4u1ZobLSV-fIQYGnFZ4A&s",
+        "categoryId": "33600cb8-ae87-4a5c-ba1e-fdb83cf34377",
+        "additions": []
+      },
+      {
+        "id": "78bab48b-7900-44b3-8b59-7fa7bd343a2a",
+        "name": "Gnocchi",
+        "description": "Gnocchi con salsa de tomate y albahaca",
+        "price": 17500,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcoCiwfP5JhQVuIostUetTc4iF5Zd647_-ng&s",
+        "categoryId": "33600cb8-ae87-4a5c-ba1e-fdb83cf34377",
+        "additions": []
+      },
+      {
+        "id": "7e3bcb6b-6086-4411-a875-4d627750f86a",
+        "name": "Pasta Frutti di Mare",
+        "description": "Pasta con mariscos mixtos",
+        "price": 24000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1mK0NM884o4chH4dSYpLFWWyThei8pvm7Xg&s",
+        "categoryId": "33600cb8-ae87-4a5c-ba1e-fdb83cf34377",
+        "additions": []
+      }
+    ]
+  },
+  {
+    "id": "5bae9d9b-0759-409f-bd04-b87ad8ad7ad7",
+    "name": "Bebidas",
+    "order": 4,
+    "dishes": [
+      {
+        "id": "7aa9ffa4-1d34-41e3-9bc4-3d738866e7f3",
+        "name": "Limonada",
+        "description": "Limonada natural grande",
+        "price": 6000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaMQcYoqV7bUFsKLcn2hUFCXbW1eNpXEZBjg&s",
+        "categoryId": "5bae9d9b-0759-409f-bd04-b87ad8ad7ad7",
+        "additions": []
+      },
+      {
+        "id": "14f9fbc3-36e9-4718-99a3-876caddedd41",
+        "name": "Gaseosa",
+        "description": "Gaseosa 350ml",
+        "price": 3000,
+        "imageUrl": "https://www.misterpollo.co/domicilios/1216-large_default/-gaseosa-350-ml.jpg",
+        "categoryId": "5bae9d9b-0759-409f-bd04-b87ad8ad7ad7",
+        "additions": []
+      },
+      {
+        "id": "d9ea6248-569b-4049-883f-e65536d5218d",
+        "name": "Agua Mineral",
+        "description": "Agua sin gas 500ml",
+        "price": 2500,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLveHon-Z5AixCz-JoYIDoktkFyeTbgfWvGg&s",
+        "categoryId": "5bae9d9b-0759-409f-bd04-b87ad8ad7ad7",
+        "additions": []
+      },
+      {
+        "id": "7d18452a-7428-487b-bcb6-892fc77349dc",
+        "name": "Jugo Natural",
+        "description": "Jugo natural de la casa",
+        "price": 7000,
+        "imageUrl": "https://k-listo.com/producto/jugo-natural-de-mora-en-agua-leche/",
+        "categoryId": "5bae9d9b-0759-409f-bd04-b87ad8ad7ad7",
+        "additions": []
+      },
+      {
+        "id": "e061a900-3ea8-4b5c-a594-2e98a8809027",
+        "name": "Café",
+        "description": "Café americano",
+        "price": 4000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7unk6bzWZy6LQpoj9PGMSPNOPIoVg2d6KEQ&s",
+        "categoryId": "5bae9d9b-0759-409f-bd04-b87ad8ad7ad7",
+        "additions": []
+      },
+      {
+        "id": "e740c8e4-a76c-4f01-ac40-619218ac645a",
+        "name": "Té Helado",
+        "description": "Té frío con limón",
+        "price": 3500,
+        "imageUrl": "https://cdn7.kiwilimon.com/recetaimagen/3613/960x640/18285.jpg.jpg",
+        "categoryId": "5bae9d9b-0759-409f-bd04-b87ad8ad7ad7",
+        "additions": []
+      },
+      {
+        "id": "73144bbe-ef11-479b-9df5-3cd45265d143",
+        "name": "Batido de Frutas",
+        "description": "Batido de frutas natural",
+        "price": 9000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy1yFYQrJbBV04QtrGltzMkWjMfLRthedkdQ&s",
+        "categoryId": "5bae9d9b-0759-409f-bd04-b87ad8ad7ad7",
+        "additions": []
+      },
+      {
+        "id": "4ded0abb-c01a-4b66-9b8e-415ec6527b78",
+        "name": "Cerveza",
+        "description": "Cerveza local 330ml",
+        "price": 6000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQCBSoFxlGm0PYP1L0_y4KIvJ0sOqNO2WSKg&s",
+        "categoryId": "5bae9d9b-0759-409f-bd04-b87ad8ad7ad7",
+        "additions": []
+      },
+      {
+        "id": "b1f54d64-d446-4896-a277-46a1d974f29e",
+        "name": "Cóctel",
+        "description": "Cóctel especial de la casa (sin alcohol)",
+        "price": 8000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYyJyavHoWU8rq3Ys9rawRAbVH3606VRHXzw&s",
+        "categoryId": "5bae9d9b-0759-409f-bd04-b87ad8ad7ad7",
+        "additions": []
+      },
+      {
+        "id": "141aea23-5ee4-47ba-a21c-cf06233146d1",
+        "name": "Agua de Coco",
+        "description": "Agua de coco natural",
+        "price": 7000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfh5UwBM_CO3574K2dNidWH36B6lxC1QLCdA&s",
+        "categoryId": "5bae9d9b-0759-409f-bd04-b87ad8ad7ad7",
+        "additions": []
+      }
+    ]
+  },
+  {
+    "id": "5f208862-5185-4a18-b7e3-cbfb13e8901d",
+    "name": "Postres",
+    "order": 5,
+    "dishes": [
+      {
+        "id": "1418fecd-7c6e-453b-9fe7-a884739be385",
+        "name": "Tres Leches",
+        "description": "Postre casero tres leches",
+        "price": 9000,
+        "imageUrl": "https://cdn0.recetasgratis.net/es/posts/0/1/9/torta_tres_leches_8910_600.jpg",
+        "categoryId": "5f208862-5185-4a18-b7e3-cbfb13e8901d",
+        "additions": []
+      },
+      {
+        "id": "3f45ddf8-8486-4719-8998-733c75636fb1",
+        "name": "Brownie con Helado",
+        "description": "Brownie caliente con helado de vainilla",
+        "price": 11000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtQ0IGh-gyZTVuXMXgG5nktB4u6HLOW9wreg&s",
+        "categoryId": "5f208862-5185-4a18-b7e3-cbfb13e8901d",
+        "additions": [
+          {
+            "id": "5168cf34-0e32-48d2-9ad0-058bca213f68",
+            "name": "Helado Extra",
+            "price": 2000
+          }
+        ]
+      },
+      {
+        "id": "b364be20-9c19-453f-9b2a-7dd3c4d4e102",
+        "name": "Flan",
+        "description": "Flan de caramelo casero",
+        "price": 8000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRt5rxTrzs_hHcqGsiKMLQe6BPpio75z4-JLA&s",
+        "categoryId": "5f208862-5185-4a18-b7e3-cbfb13e8901d",
+        "additions": []
+      },
+      {
+        "id": "658e5242-9e7c-431b-9d80-685842f74e9f",
+        "name": "Cheesecake",
+        "description": "Cheesecake con coulis de frutos rojos",
+        "price": 12000,
+        "imageUrl": "https://i.ytimg.com/vi/kcVMt1gtXds/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCmXH7pauOiPzjuAEkPyvGkltODvg",
+        "categoryId": "5f208862-5185-4a18-b7e3-cbfb13e8901d",
+        "additions": []
+      },
+      {
+        "id": "6e5dbeb1-e53a-4d75-9b9a-a68ddd133768",
+        "name": "Helado Surtido",
+        "description": "Copa de helado mixto",
+        "price": 7000,
+        "imageUrl": "https://thumbs.dreamstime.com/b/surtido-de-helados-359675612.jpg",
+        "categoryId": "5f208862-5185-4a18-b7e3-cbfb13e8901d",
+        "additions": []
+      },
+      {
+        "id": "45b51d8c-5a9f-4b01-855f-6b79f2a076b0",
+        "name": "Arroz con Leche",
+        "description": "Arroz con leche tradicional",
+        "price": 6000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmUYacY9wRWbtcv-WMAphCV0KGgw7kV_fJ8A&s",
+        "categoryId": "5f208862-5185-4a18-b7e3-cbfb13e8901d",
+        "additions": []
+      },
+      {
+        "id": "bd3d971c-0de0-4677-b889-0407d55ce5c1",
+        "name": "Panqueques",
+        "description": "Panqueques con miel y frutas",
+        "price": 10000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRNsfMt6sT8Ov2y8ma2x6IJfIisIj06_FK6Q&s",
+        "categoryId": "5f208862-5185-4a18-b7e3-cbfb13e8901d",
+        "additions": []
+      },
+      {
+        "id": "83b53ac8-26aa-4109-bfe6-2f008ea15a8a",
+        "name": "Mousse de Chocolate",
+        "description": "Mousse ligero de chocolate",
+        "price": 9500,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvMXFTHAi9EQEulLKSDGKabwisF8FMF6FzJg&s",
+        "categoryId": "5f208862-5185-4a18-b7e3-cbfb13e8901d",
+        "additions": []
+      },
+      {
+        "id": "ea37efa6-4126-431d-8ca8-bd277bc14618",
+        "name": "Tarta de Manzana",
+        "description": "Tarta de manzana tibia",
+        "price": 10500,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6FR__Xl7P6HLdI717TmvsWsXlAORMRvTetg&s",
+        "categoryId": "5f208862-5185-4a18-b7e3-cbfb13e8901d",
+        "additions": []
+      },
+      {
+        "id": "261a23bd-8e29-4736-8b3d-34e191a6ace6",
+        "name": "Churros",
+        "description": "Churros con chocolate",
+        "price": 8500,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMmatyqZovCKIc1sHWqs_OWBp_H7xbp1Gfxw&s",
+        "categoryId": "5f208862-5185-4a18-b7e3-cbfb13e8901d",
+        "additions": []
+      }
+    ]
+  }
+]
