@@ -1,3 +1,5 @@
+// En lib/domain/models/addition.dart
+
 import 'package:equatable/equatable.dart';
 
 class Addition extends Equatable {
@@ -13,10 +15,18 @@ class Addition extends Equatable {
 
   factory Addition.fromJson(Map<String, dynamic> json) {
     return Addition(
-      id: json['id'],
-      name: json['name'],
+      id: json['id'] as String,
+      name: json['name'] as String,
       price: (json['price'] as num).toDouble(),
     );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'price': price,
+    };
   }
 
   @override

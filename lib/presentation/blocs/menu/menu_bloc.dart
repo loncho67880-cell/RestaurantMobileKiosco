@@ -14,12 +14,16 @@ class MenuBloc extends Bloc<MenuEvent, MenuState> {
   Future<void> _onLoadMenu(LoadMenuEvent event, Emitter<MenuState> emit) async {
     emit(MenuLoading());
     try {
-      final categories = await menuRepository.getMenuData();
+      // Usamos el método que filtra por idioma pasando el localeCode del evento
+      final categories = await menuRepository.loadCategories(event.localeCode ?? 'es');
+
       if (categories.isNotEmpty) {
-        emit(MenuLoaded(
-          categories: categories,
-          selectedCategoryId: categories.first.id, // Por defecto la primera
-        ));
+        emit(
+          MenuLoaded(
+            categories: categories,
+            selectedCategoryId: categories.first.id, // Por defecto la primera
+          ),
+        );
       } else {
         emit(const MenuError("No se encontraron categorías disponibles."));
       }

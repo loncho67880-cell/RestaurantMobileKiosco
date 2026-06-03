@@ -1,38 +1,38 @@
 [
   {
     "id": "a239ec89-a4af-4497-bd71-29958322a2f2",
-    "name": "Carnes",
+    "name": "Meats",
     "order": 1,
     "dishes": [
       {
         "id": "dc2bdd56-b50b-4bd5-97b4-e373e1a09ca4",
-        "name": "Bistec",
-        "description": "Bistec de res con papas fritas y ensalada",
-        "price": 35000,
+        "name": "Steak",
+        "description": "Beef steak with french fries and salad",
+        "price": 25000,
         "imageUrl": "assets/images/Bistec.jpg",
         "categoryId": "a239ec89-a4af-4497-bd71-29958322a2f2",
         "additions": [
           {
             "id": "5aa53d0a-f311-4801-a5b0-79ea3a0c269f",
-            "name": "Papas",
-            "price": 5000
+            "name": "Fries",
+            "price": 3000
           },
           {
             "id": "71b67919-939d-43a0-be32-9d18c6714bc6",
             "name": "Guacamole",
-            "price": 6000
+            "price": 4000
           },
           {
             "id": "754586e1-551e-4aa3-9090-dca7093bece1",
             "name": "Chimichurri",
-            "price": 3500
+            "price": 1500
           }
         ]
       },
       {
         "id": "a6d1ad4b-012a-4641-b7d7-12f5b74def71",
         "name": "Churrasco",
-        "description": "Churrasco a la parrilla con chimichurri",
+        "description": "Grilled churrasco with chimichurri",
         "price": 32000,
         "imageUrl": "assets/images/Churrasco.jpg",
         "categoryId": "a239ec89-a4af-4497-bd71-29958322a2f2",
@@ -40,226 +40,6 @@
           {
             "id": "754586e1-551e-4aa3-9090-dca7093bece1",
             "name": "Chimichurri",
-            "price": 3500
-          },
-          {
-            "id": "71b67919-939d-43a0-be32-9d18c6714bc6",
-            "name": "Guacamole",
-            "price": 6000
-          },
-          {
-            "id": "5aa53d0a-f311-4801-a5b0-79ea3a0c269f",
-            "name": "Papas",
-            "price": 5000
-          }
-        ]
-      },
-      {
-        "id": "0eae4f27-4039-4645-ac31-8237b4791a5c",
-        "name": "Lomo Saltado",
-        "description": "Lomo saltado estilo tradicional",
-        "price": 48000,
-        "imageUrl": "assets/images/Lomo_Saltado.jpg",
-        "categoryId": "a239ec89-a4af-4497-bd71-29958322a2f2",
-        "additions": [
-          {
-            "id": "5aa53d0a-f311-4801-a5b0-79ea3a0c269f",
-            "name": "Papas",
-            "price": 5000
-          },
-          {
-            "id": "71b67919-939d-43a0-be32-9d18c6714bc6",
-            "name": "Guacamole",
-            "price": 6000
-          },
-          {
-            "id": "754586e1-551e-4aa3-9090-dca7093bece1",
-            "name": "Chimichurri",
-            "price": 3500
-          },
-          {
-            "id": "55534e1f-fa82-41fb-bab5-966655fb4cce",
-            "name": "Yuca Frita",
-            "price": 4000
-          }
-        ]
-      },
-      {
-        "id": "272ca52c-9b3a-436e-8b76-721f2301661c",
-        "name": "Pollo a la Brasa",
-        "description": "Pollo a la brasa con papas y ensalada",
-        "price": 42000,
-        "imageUrl": "assets/images/Pollo_a_la_Brasa.jpg",
-        "categoryId": "a239ec89-a4af-4497-bd71-29958322a2f2",
-        "additions": [
-          {
-            "id": "5aa53d0a-f311-4801-a5b0-79ea3a0c269f",
-            "name": "Papas",
-            "price": 5000
-          },
-          {
-            "id": "71b67919-939d-43a0-be32-9d18c6714bc6",
-            "name": "Guacamole",
-            "price": 6000
-          },
-          {
-            "id": "754586e1-551e-4aa3-9090-dca7093bece1",
-            "name": "Chimichurri",
-            "price": 3500
-          },
-          {
-            "id": "9eebe37f-e55d-4dbd-b089-0b1b58f76788",
-            "name": "Salsa Huancaina",
-            "price": 4200
-          }
-        ]
-      },
-      {
-        "id": "71667c34-cbc9-4074-bf41-9e472b97afbb",
-        "name": "Costillas BBQ",
-        "description": "Costillas de cerdo en salsa BBQ",
-        "price": 35000,
-        "imageUrl": "assets/images/Costillas_BBBQ.jpg",
-        "categoryId": "a239ec89-a4af-4497-bd71-29958322a2f2",
-        "additions": [
-          {
-            "id": "5aa53d0a-f311-4801-a5b0-79ea3a0c269f",
-            "name": "Papas",
-            "price": 5000
-          },
-          {
-            "id": "71b67919-939d-43a0-be32-9d18c6714bc6",
-            "name": "Guacamole",
-            "price": 6000
-          },
-          {
-            "id": "754586e1-551e-4aa3-9090-dca7093bece1",
-            "name": "Chimichurri",
-            "price": 3500
-          },
-          {
-            "id": "107c63a4-e354-4fe0-bcf2-552406a1fbf5",
-            "name": "Papas Asadas",
-            "price": 5000
-          }
-        ]
-      },
-      {
-        "id": "4a180323-911f-433c-a609-12ee56822568",
-        "name": "Entrecot",
-        "description": "Entrecot de res madurado con mantequilla de ajo",
-        "price": 56000,
-        "imageUrl": "assets/images/Entrecot.jpg",
-        "categoryId": "a239ec89-a4af-4497-bd71-29958322a2f2",
-        "additions": [
-          {
-            "id": "5aa53d0a-f311-4801-a5b0-79ea3a0c269f",
-            "name": "Papas",
-            "price": 5000
-          },
-          {
-            "id": "71b67919-939d-43a0-be32-9d18c6714bc6",
-            "name": "Guacamole",
-            "price": 6000
-          },
-          {
-            "id": "754586e1-551e-4aa3-9090-dca7093bece1",
-            "name": "Chimichurri",
-            "price": 3500
-          }
-        ]
-      },
-      {
-        "id": "40c807d5-bd19-4a18-97a6-d413d18ba532",
-        "name": "Hamburguesa Especial",
-        "description": "Hamburguesa con doble carne, queso y bacon",
-        "price": 28000,
-        "imageUrl": "assets/images/Hamburguesa_Especial.jpg",
-        "categoryId": "a239ec89-a4af-4497-bd71-29958322a2f2",
-        "additions": [
-          {
-            "id": "d91286b0-1ea6-4610-8738-2cd1ad9caa27",
-            "name": "Queso Extra",
-            "price": 3500
-          },
-          {
-            "id": "0adc41c1-20e5-4d63-8621-5ad37349dd8e",
-            "name": "Bacon",
-            "price": 4000
-          },
-          {
-            "id": "5aa53d0a-f311-4801-a5b0-79ea3a0c269f",
-            "name": "Papas",
-            "price": 5000
-          },
-          {
-            "id": "71b67919-939d-43a0-be32-9d18c6714bc6",
-            "name": "Guacamole",
-            "price": 6000
-          }
-        ]
-      },
-      {
-        "id": "59580ad6-1ad0-44b5-8774-9eea32440dc3",
-        "name": "Steak Ranchero",
-        "description": "Steak con salsa ranchera",
-        "price": 35000,
-        "imageUrl": "assets/images/Steak_Ranchero.jpg",
-        "categoryId": "a239ec89-a4af-4497-bd71-29958322a2f2",
-        "additions": [
-          {
-            "id": "5aa53d0a-f311-4801-a5b0-79ea3a0c269f",
-            "name": "Papas",
-            "price": 5000
-          },
-          {
-            "id": "71b67919-939d-43a0-be32-9d18c6714bc6",
-            "name": "Guacamole",
-            "price": 6000
-          },
-          {
-            "id": "754586e1-551e-4aa3-9090-dca7093bece1",
-            "name": "Chimichurri",
-            "price": 3500
-          }
-        ]
-      },
-      {
-        "id": "8bdf4292-8e77-42f4-8b4a-9dfcfa570c4a",
-        "name": "Chuleta Ahumada",
-        "description": "Chuleta de cerdo ahumada con glaseado",
-        "price": 27000,
-        "imageUrl": "assets/images/Chuleta_Ahumada.jpg",
-        "categoryId": "a239ec89-a4af-4497-bd71-29958322a2f2",
-        "additions": [
-          {
-            "id": "5aa53d0a-f311-4801-a5b0-79ea3a0c269f",
-            "name": "Papas",
-            "price": 5000
-          },
-          {
-            "id": "71b67919-939d-43a0-be32-9d18c6714bc6",
-            "name": "Guacamole",
-            "price": 6000
-          },
-          {
-            "id": "754586e1-551e-4aa3-9090-dca7093bece1",
-            "name": "Chimichurri",
-            "price": 3500
-          }
-        ]
-      },
-      {
-        "id": "125efcb1-5d2f-4bac-bad8-1f8a8b8a5a21",
-        "name": "Punta de Anca",
-        "description": "Punta de anca a la parrilla",
-        "price": 44000,
-        "imageUrl": "assets/images/Punta_de_Anca.jpg",
-        "categoryId": "a239ec89-a4af-4497-bd71-29958322a2f2",
-        "additions": [
-          {
-            "id": "2bcb6445-7cca-4ab8-934b-e21c905f6e56",
-            "name": "Salsa Chimichurri",
             "price": 1500
           },
           {
@@ -269,7 +49,227 @@
           },
           {
             "id": "5aa53d0a-f311-4801-a5b0-79ea3a0c269f",
-            "name": "Papas",
+            "name": "Fries",
+            "price": 3000
+          }
+        ]
+      },
+      {
+        "id": "0eae4f27-4039-4645-ac31-8237b4791a5c",
+        "name": "Lomo Saltado",
+        "description": "Traditional style lomo saltado",
+        "price": 28000,
+        "imageUrl": "assets/images/Lomo_Saltado.jpg",
+        "categoryId": "a239ec89-a4af-4497-bd71-29958322a2f2",
+        "additions": [
+          {
+            "id": "5aa53d0a-f311-4801-a5b0-79ea3a0c269f",
+            "name": "Fries",
+            "price": 3000
+          },
+          {
+            "id": "71b67919-939d-43a0-be32-9d18c6714bc6",
+            "name": "Guacamole",
+            "price": 4000
+          },
+          {
+            "id": "754586e1-551e-4aa3-9090-dca7093bece1",
+            "name": "Chimichurri",
+            "price": 1500
+          },
+          {
+            "id": "55534e1f-fa82-41fb-bab5-966655fb4cce",
+            "name": "Fried Yuca",
+            "price": 3000
+          }
+        ]
+      },
+      {
+        "id": "272ca52c-9b3a-436e-8b76-721f2301661c",
+        "name": "Roast Chicken",
+        "description": "Roast chicken with fries and salad",
+        "price": 22000,
+        "imageUrl": "assets/images/Pollo_a_la_Brasa.jpg",
+        "categoryId": "a239ec89-a4af-4497-bd71-29958322a2f2",
+        "additions": [
+          {
+            "id": "5aa53d0a-f311-4801-a5b0-79ea3a0c269f",
+            "name": "Fries",
+            "price": 3000
+          },
+          {
+            "id": "71b67919-939d-43a0-be32-9d18c6714bc6",
+            "name": "Guacamole",
+            "price": 4000
+          },
+          {
+            "id": "754586e1-551e-4aa3-9090-dca7093bece1",
+            "name": "Chimichurri",
+            "price": 1500
+          },
+          {
+            "id": "9eebe37f-e55d-4dbd-b089-0b1b58f76788",
+            "name": "Huancaina Sauce",
+            "price": 1200
+          }
+        ]
+      },
+      {
+        "id": "71667c34-cbc9-4074-bf41-9e472b97afbb",
+        "name": "BBQ Ribs",
+        "description": "Pork ribs in BBQ sauce",
+        "price": 35000,
+        "imageUrl": "assets/images/Costillas_BBBQ.jpg",
+        "categoryId": "a239ec89-a4af-4497-bd71-29958322a2f2",
+        "additions": [
+          {
+            "id": "5aa53d0a-f311-4801-a5b0-79ea3a0c269f",
+            "name": "Fries",
+            "price": 3000
+          },
+          {
+            "id": "71b67919-939d-43a0-be32-9d18c6714bc6",
+            "name": "Guacamole",
+            "price": 4000
+          },
+          {
+            "id": "754586e1-551e-4aa3-9090-dca7093bece1",
+            "name": "Chimichurri",
+            "price": 1500
+          },
+          {
+            "id": "107c63a4-e354-4fe0-bcf2-552406a1fbf5",
+            "name": "Baked Potatoes",
+            "price": 3000
+          }
+        ]
+      },
+      {
+        "id": "4a180323-911f-433c-a609-12ee56822568",
+        "name": "Entrecôte",
+        "description": "Aged beef entrecôte with garlic butter",
+        "price": 36000,
+        "imageUrl": "assets/images/Entrecot.jpg",
+        "categoryId": "a239ec89-a4af-4497-bd71-29958322a2f2",
+        "additions": [
+          {
+            "id": "5aa53d0a-f311-4801-a5b0-79ea3a0c269f",
+            "name": "Fries",
+            "price": 3000
+          },
+          {
+            "id": "71b67919-939d-43a0-be32-9d18c6714bc6",
+            "name": "Guacamole",
+            "price": 4000
+          },
+          {
+            "id": "754586e1-551e-4aa3-9090-dca7093bece1",
+            "name": "Chimichurri",
+            "price": 1500
+          }
+        ]
+      },
+      {
+        "id": "40c807d5-bd19-4a18-97a6-d413d18ba532",
+        "name": "Special Burger",
+        "description": "Burger with double meat, cheese, and bacon",
+        "price": 18000,
+        "imageUrl": "assets/images/Hamburguesa_Especial.jpg",
+        "categoryId": "a239ec89-a4af-4497-bd71-29958322a2f2",
+        "additions": [
+          {
+            "id": "d91286b0-1ea6-4610-8738-2cd1ad9caa27",
+            "name": "Extra Cheese",
+            "price": 1500
+          },
+          {
+            "id": "0adc41c1-20e5-4d63-8621-5ad37349dd8e",
+            "name": "Bacon",
+            "price": 2000
+          },
+          {
+            "id": "5aa53d0a-f311-4801-a5b0-79ea3a0c269f",
+            "name": "Fries",
+            "price": 3000
+          },
+          {
+            "id": "71b67919-939d-43a0-be32-9d18c6714bc6",
+            "name": "Guacamole",
+            "price": 4000
+          }
+        ]
+      },
+      {
+        "id": "59580ad6-1ad0-44b5-8774-9eea32440dc3",
+        "name": "Ranchero Steak",
+        "description": "Steak with ranchera sauce",
+        "price": 30000,
+        "imageUrl": "assets/images/Steak_Ranchero.jpg",
+        "categoryId": "a239ec89-a4af-4497-bd71-29958322a2f2",
+        "additions": [
+          {
+            "id": "5aa53d0a-f311-4801-a5b0-79ea3a0c269f",
+            "name": "Fries",
+            "price": 3000
+          },
+          {
+            "id": "71b67919-939d-43a0-be32-9d18c6714bc6",
+            "name": "Guacamole",
+            "price": 4000
+          },
+          {
+            "id": "754586e1-551e-4aa3-9090-dca7093bece1",
+            "name": "Chimichurri",
+            "price": 1500
+          }
+        ]
+      },
+      {
+        "id": "8bdf4292-8e77-42f4-8b4a-9dfcfa570c4a",
+        "name": "Smoked Pork Chop",
+        "description": "Smoked pork chop with glaze",
+        "price": 27000,
+        "imageUrl": "assets/images/Chuleta_Ahumada.jpg",
+        "categoryId": "a239ec89-a4af-4497-bd71-29958322a2f2",
+        "additions": [
+          {
+            "id": "5aa53d0a-f311-4801-a5b0-79ea3a0c269f",
+            "name": "Fries",
+            "price": 3000
+          },
+          {
+            "id": "71b67919-939d-43a0-be32-9d18c6714bc6",
+            "name": "Guacamole",
+            "price": 4000
+          },
+          {
+            "id": "754586e1-551e-4aa3-9090-dca7093bece1",
+            "name": "Chimichurri",
+            "price": 1500
+          }
+        ]
+      },
+      {
+        "id": "125efcb1-5d2f-4bac-bad8-1f8a8b8a5a21",
+        "name": "Picanha",
+        "description": "Grilled picanha (sirloin cap)",
+        "price": 34000,
+        "imageUrl": "assets/images/Punta_de_Anca.jpg",
+        "categoryId": "a239ec89-a4af-4497-bd71-29958322a2f2",
+        "additions": [
+          {
+            "id": "2bcb6445-7cca-4ab8-934b-e21c905f6e56",
+            "name": "Chimichurri Sauce",
+            "price": 1500
+          },
+          {
+            "id": "71b67919-939d-43a0-be32-9d18c6714bc6",
+            "name": "Guacamole",
+            "price": 4000
+          },
+          {
+            "id": "5aa53d0a-f311-4801-a5b0-79ea3a0c269f",
+            "name": "Fries",
             "price": 3000
           }
         ]
@@ -278,29 +278,29 @@
   },
   {
     "id": "10abea8c-d1f7-416d-aab2-7374b310f1de",
-    "name": "Sopas",
+    "name": "Soups",
     "order": 2,
     "dishes": [
       {
         "id": "acf3ad8d-e9ec-4f8b-8946-1d49828b8fe9",
-        "name": "Sopa de Pollo",
-        "description": "Sopa tradicional con fideos y verduras",
-        "price": 22000,
+        "name": "Chicken Soup",
+        "description": "Traditional soup with noodles and vegetables",
+        "price": 12000,
         "imageUrl": "assets/images/Sopa_de_Pollo.jpg",
         "categoryId": "10abea8c-d1f7-416d-aab2-7374b310f1de",
         "additions": [
           {
             "id": "c1007d75-d8a6-45c1-ba77-8a96d8b19378",
-            "name": "Ají",
+            "name": "Ají (Hot Sauce)",
             "price": 500
           }
         ]
       },
       {
         "id": "f5f2a91e-dd63-4761-a00a-da173aab8ae6",
-        "name": "Sopa de Mariscos",
-        "description": "Caldo de mariscos con toque de cilantro",
-        "price": 28000,
+        "name": "Seafood Soup",
+        "description": "Seafood broth with a touch of cilantro",
+        "price": 18000,
         "imageUrl": "assets/images/Sopa_de_Mariscos.jpg",
         "categoryId": "10abea8c-d1f7-416d-aab2-7374b310f1de",
         "additions": []
@@ -308,8 +308,8 @@
       {
         "id": "7b74d784-4119-4403-8871-27ddbf2f05d9",
         "name": "Ajiaco",
-        "description": "Sopa cremosa con pollo y verduras",
-        "price": 25000,
+        "description": "Creamy soup with chicken and vegetables",
+        "price": 15000,
         "imageUrl": "assets/images/Ajiaco.jpg",
         "categoryId": "10abea8c-d1f7-416d-aab2-7374b310f1de",
         "additions": []
@@ -317,8 +317,8 @@
       {
         "id": "b84978c3-cef7-4d5d-a21a-de7d577b0d8b",
         "name": "Minestrone",
-        "description": "Sopa italiana con verduras y pasta",
-        "price": 24000,
+        "description": "Italian soup with vegetables and pasta",
+        "price": 14000,
         "imageUrl": "assets/images/Minestrone.jpg",
         "categoryId": "10abea8c-d1f7-416d-aab2-7374b310f1de",
         "additions": []
@@ -326,17 +326,17 @@
       {
         "id": "e8d7524e-a615-499e-873b-de50e7aa4eb8",
         "name": "Sancocho",
-        "description": "Sancocho tradicional con yuca y plátano",
-        "price": 26000,
+        "description": "Traditional sancocho with yuca and plantain",
+        "price": 16000,
         "imageUrl": "assets/images/Sancocho.jpg",
         "categoryId": "10abea8c-d1f7-416d-aab2-7374b310f1de",
         "additions": []
       },
       {
         "id": "08c7b7c2-d3ce-4f72-b8ff-e7d6c8e79ea3",
-        "name": "Crema de Tomate",
-        "description": "Crema suave de tomate con albahaca",
-        "price": 21000,
+        "name": "Tomato Soup",
+        "description": "Smooth tomato soup with basil",
+        "price": 11000,
         "imageUrl": "assets/images/Crema_de_Tomate.jpg",
         "categoryId": "10abea8c-d1f7-416d-aab2-7374b310f1de",
         "additions": [
@@ -349,18 +349,18 @@
       },
       {
         "id": "359b49fc-b0ca-4b42-ab01-976eacf67fb0",
-        "name": "Caldo de Res",
-        "description": "Caldo de res con verduras",
-        "price": 45000,
+        "name": "Beef Broth",
+        "description": "Beef broth with vegetables",
+        "price": 15000,
         "imageUrl": "assets/images/Caldo_de_Res.jpg",
         "categoryId": "10abea8c-d1f7-416d-aab2-7374b310f1de",
         "additions": []
       },
       {
         "id": "5412dae1-96ff-4f54-a8da-303064148671",
-        "name": "Sopa de Verduras",
-        "description": "Sopa ligera de verduras de temporada",
-        "price": 25000,
+        "name": "Vegetable Soup",
+        "description": "Light soup with seasonal vegetables",
+        "price": 10000,
         "imageUrl": "assets/images/Sopa_de_Verduras.jpg",
         "categoryId": "10abea8c-d1f7-416d-aab2-7374b310f1de",
         "additions": []
@@ -368,22 +368,22 @@
       {
         "id": "a014cf4f-87df-4551-a685-7525d4d6f7a6",
         "name": "Ramen",
-        "description": "Ramen con huevo y cerdo",
+        "description": "Ramen with egg and pork",
         "price": 20000,
         "imageUrl": "assets/images/Ramen.jpg",
         "categoryId": "10abea8c-d1f7-416d-aab2-7374b310f1de",
         "additions": [
           {
             "id": "e4bae8ed-d847-4002-9cfd-6736ec419032",
-            "name": "Huevo Extra",
+            "name": "Extra Egg",
             "price": 1200
           }
         ]
       },
       {
         "id": "bbaa4e1d-9554-4ab9-9212-859c4319d8bb",
-        "name": "Sopa de Lentejas",
-        "description": "Sopa nutritiva de lentejas",
+        "name": "Lentil Soup",
+        "description": "Nutritious lentil soup",
         "price": 9000,
         "imageUrl": "assets/images/Sopa_de_Lentejas.jpg",
         "categoryId": "10abea8c-d1f7-416d-aab2-7374b310f1de",
@@ -398,53 +398,53 @@
     "dishes": [
       {
         "id": "1b1ea63b-c277-4301-bf37-c82cb8fd588f",
-        "name": "Pasta Alfredo",
-        "description": "Pasta con salsa blanca y champiñones",
-        "price": 28000,
+        "name": "Fettuccine Alfredo",
+        "description": "Pasta with white sauce and mushrooms",
+        "price": 18000,
         "imageUrl": "assets/images/Pasta_Alfredo.jpg",
         "categoryId": "33600cb8-ae87-4a5c-ba1e-fdb83cf34377",
         "additions": [
           {
             "id": "41a08012-8df0-43e7-8f93-fa8467ba286b",
-            "name": "Queso Extra",
+            "name": "Extra Cheese",
             "price": 2000
           }
         ]
       },
       {
         "id": "9e315180-0617-458c-bce6-70de1c47ba23",
-        "name": "Pasta Bolognesa",
-        "description": "Pasta con salsa de carne casera",
-        "price": 29000,
+        "name": "Spaghetti Bolognese",
+        "description": "Pasta with homemade meat sauce",
+        "price": 19000,
         "imageUrl": "assets/images/Pasta_Bolognesa.jpg",
         "categoryId": "33600cb8-ae87-4a5c-ba1e-fdb83cf34377",
         "additions": [
           {
             "id": "f0a46933-2241-444e-8ab4-01888728e86b",
-            "name": "Pan Ajo",
+            "name": "Garlic Bread",
             "price": 1000
           }
         ]
       },
       {
         "id": "bf988f10-640e-4884-abcd-b80951a8e0c9",
-        "name": "Pasta Carbonara",
-        "description": "Pasta con salsa carbonara y tocineta",
-        "price": 29500,
+        "name": "Spaghetti Carbonara",
+        "description": "Pasta with carbonara sauce and bacon",
+        "price": 19500,
         "imageUrl": "assets/images/Pasta_Carbonara.jpg",
         "categoryId": "33600cb8-ae87-4a5c-ba1e-fdb83cf34377",
         "additions": [
           {
             "id": "5efac7b5-e9d8-41c7-a90f-31d2d98b17ab",
-            "name": "Tocineta Extra",
-            "price": 5000
+            "name": "Extra Bacon",
+            "price": 3000
           }
         ]
       },
       {
         "id": "0233f210-8c3e-4e31-a01c-5db080ac3a94",
         "name": "Ravioli",
-        "description": "Raviolis rellenos de ricotta",
+        "description": "Ricotta-stuffed ravioli",
         "price": 20000,
         "imageUrl": "assets/images/Ravioli.jpg",
         "categoryId": "33600cb8-ae87-4a5c-ba1e-fdb83cf34377",
@@ -453,7 +453,7 @@
       {
         "id": "d79bb865-37d1-4ab4-a124-a0e102bc2367",
         "name": "Lasagna",
-        "description": "Lasagna casera de carne",
+        "description": "Homemade meat lasagna",
         "price": 21000,
         "imageUrl": "assets/images/Lasagna.jpg",
         "categoryId": "33600cb8-ae87-4a5c-ba1e-fdb83cf34377",
@@ -461,17 +461,17 @@
       },
       {
         "id": "8ef262a7-a04d-4cf2-a713-010414fb71c9",
-        "name": "Penne Arrabiata",
-        "description": "Pasta picante con tomate",
-        "price": 27000,
+        "name": "Penne Arrabbiata",
+        "description": "Spicy pasta with tomato",
+        "price": 17000,
         "imageUrl": "assets/images/Penne_Arrabiata.jpg",
         "categoryId": "33600cb8-ae87-4a5c-ba1e-fdb83cf34377",
         "additions": []
       },
       {
         "id": "957cbc2f-a3a4-41ec-8405-a610b7e0a769",
-        "name": "Spaghetti con Albóndigas",
-        "description": "Spaghetti con albóndigas caseras",
+        "name": "Spaghetti and Meatballs",
+        "description": "Spaghetti with homemade meatballs",
         "price": 20000,
         "imageUrl": "assets/images/Spaghetti_con_Albóndigas.jpg",
         "categoryId": "33600cb8-ae87-4a5c-ba1e-fdb83cf34377",
@@ -480,8 +480,8 @@
       {
         "id": "5d61b26b-43b1-4976-92e9-5fbc140f21dc",
         "name": "Fettuccine Pesto",
-        "description": "Fettuccine con pesto de albahaca",
-        "price": 28500,
+        "description": "Fettuccine with basil pesto",
+        "price": 18500,
         "imageUrl": "assets/images/Fettuccine_Pesto.jpg",
         "categoryId": "33600cb8-ae87-4a5c-ba1e-fdb83cf34377",
         "additions": []
@@ -489,16 +489,16 @@
       {
         "id": "78bab48b-7900-44b3-8b59-7fa7bd343a2a",
         "name": "Gnocchi",
-        "description": "Gnocchi con salsa de tomate y albahaca",
-        "price": 27500,
+        "description": "Gnocchi with tomato sauce and basil",
+        "price": 17500,
         "imageUrl": "assets/images/Gnocchi.jpg",
         "categoryId": "33600cb8-ae87-4a5c-ba1e-fdb83cf34377",
         "additions": []
       },
       {
         "id": "7e3bcb6b-6086-4411-a875-4d627750f86a",
-        "name": "Pasta Frutti di Mare",
-        "description": "Pasta con mariscos mixtos",
+        "name": "Frutti di Mare Pasta",
+        "description": "Pasta with mixed seafood",
         "price": 24000,
         "imageUrl": "assets/images/Pasta_Frutti_di_Mare.jpg",
         "categoryId": "33600cb8-ae87-4a5c-ba1e-fdb83cf34377",
@@ -508,13 +508,13 @@
   },
   {
     "id": "5bae9d9b-0759-409f-bd04-b87ad8ad7ad7",
-    "name": "Bebidas",
+    "name": "Drinks",
     "order": 4,
     "dishes": [
       {
         "id": "7aa9ffa4-1d34-41e3-9bc4-3d738866e7f3",
-        "name": "Limonada",
-        "description": "Limonada natural grande",
+        "name": "Lemonade",
+        "description": "Large natural lemonade",
         "price": 6000,
         "imageUrl": "assets/images/Limonada.jpg",
         "categoryId": "5bae9d9b-0759-409f-bd04-b87ad8ad7ad7",
@@ -522,8 +522,8 @@
       },
       {
         "id": "14f9fbc3-36e9-4718-99a3-876caddedd41",
-        "name": "Gaseosa",
-        "description": "Gaseosa 350ml",
+        "name": "Soda",
+        "description": "Soda 350ml",
         "price": 3000,
         "imageUrl": "assets/images/Gaseosa.jpg",
         "categoryId": "5bae9d9b-0759-409f-bd04-b87ad8ad7ad7",
@@ -531,8 +531,8 @@
       },
       {
         "id": "d9ea6248-569b-4049-883f-e65536d5218d",
-        "name": "Agua Mineral",
-        "description": "Agua sin gas 500ml",
+        "name": "Mineral Water",
+        "description": "Still water 500ml",
         "price": 2500,
         "imageUrl": "assets/images/Agua_Mineral.jpg",
         "categoryId": "5bae9d9b-0759-409f-bd04-b87ad8ad7ad7",
@@ -540,8 +540,8 @@
       },
       {
         "id": "7d18452a-7428-487b-bcb6-892fc77349dc",
-        "name": "Jugo Natural",
-        "description": "Jugo natural de la casa",
+        "name": "Natural Juice",
+        "description": "House natural juice",
         "price": 7000,
         "imageUrl": "assets/images/Jugo_Natural.jpg",
         "categoryId": "5bae9d9b-0759-409f-bd04-b87ad8ad7ad7",
@@ -549,8 +549,8 @@
       },
       {
         "id": "e061a900-3ea8-4b5c-a594-2e98a8809027",
-        "name": "Cafe",
-        "description": "Café americano",
+        "name": "Coffee",
+        "description": "Americano coffee",
         "price": 4000,
         "imageUrl": "assets/images/Café.jpg",
         "categoryId": "5bae9d9b-0759-409f-bd04-b87ad8ad7ad7",
@@ -558,8 +558,8 @@
       },
       {
         "id": "e740c8e4-a76c-4f01-ac40-619218ac645a",
-        "name": "Té Helado",
-        "description": "Té frío con limón",
+        "name": "Iced Tea",
+        "description": "Cold tea with lemon",
         "price": 3500,
         "imageUrl": "assets/images/Té_Helado.jpg",
         "categoryId": "5bae9d9b-0759-409f-bd04-b87ad8ad7ad7",
@@ -567,8 +567,8 @@
       },
       {
         "id": "73144bbe-ef11-479b-9df5-3cd45265d143",
-        "name": "Batido de Frutas",
-        "description": "Batido de frutas natural",
+        "name": "Fruit Smoothie",
+        "description": "Natural fruit smoothie",
         "price": 9000,
         "imageUrl": "assets/images/Batido_de_Frutas.jpg",
         "categoryId": "5bae9d9b-0759-409f-bd04-b87ad8ad7ad7",
@@ -576,8 +576,8 @@
       },
       {
         "id": "4ded0abb-c01a-4b66-9b8e-415ec6527b78",
-        "name": "Cerveza",
-        "description": "Cerveza local 330ml",
+        "name": "Beer",
+        "description": "Local beer 330ml",
         "price": 6000,
         "imageUrl": "assets/images/Cerveza.jpg",
         "categoryId": "5bae9d9b-0759-409f-bd04-b87ad8ad7ad7",
@@ -585,8 +585,8 @@
       },
       {
         "id": "b1f54d64-d446-4896-a277-46a1d974f29e",
-        "name": "Cóctel",
-        "description": "Cóctel especial de la casa (sin alcohol)",
+        "name": "Cocktail",
+        "description": "Special house cocktail (non-alcoholic)",
         "price": 8000,
         "imageUrl": "assets/images/Cóctel.jpg",
         "categoryId": "5bae9d9b-0759-409f-bd04-b87ad8ad7ad7",
@@ -594,8 +594,8 @@
       },
       {
         "id": "141aea23-5ee4-47ba-a21c-cf06233146d1",
-        "name": "Agua de Coco",
-        "description": "Agua de coco natural",
+        "name": "Coconut Water",
+        "description": "Natural coconut water",
         "price": 7000,
         "imageUrl": "assets/images/Agua_de_Coco.jpg",
         "categoryId": "5bae9d9b-0759-409f-bd04-b87ad8ad7ad7",
@@ -605,50 +605,50 @@
   },
   {
     "id": "5f208862-5185-4a18-b7e3-cbfb13e8901d",
-    "name": "Postres",
+    "name": "Desserts",
     "order": 5,
     "dishes": [
       {
         "id": "1418fecd-7c6e-453b-9fe7-a884739be385",
         "name": "Tres Leches",
-        "description": "Postre casero tres leches",
+        "description": "Homemade tres leches dessert",
         "price": 9000,
         "imageUrl": "assets/images/Tres_Leches.jpg",
         "categoryId": "5f208862-5185-4a18-b7e3-cbfb13e8901d",
         "additions": [
           {
             "id": "a11286b0-1ea6-4610-8738-2cd1ad9ca001",
-            "name": "Extra de Arequipe",
+            "name": "Extra Arequipe",
             "price": 1500
           },
           {
             "id": "b2dc41c1-20e5-4d63-8621-5ad37349dd02",
-            "name": "Extra de Chocolate",
+            "name": "Extra Chocolate",
             "price": 1500
           }
         ]
       },
       {
         "id": "3f45ddf8-8486-4719-8998-733c75636fb1",
-        "name": "Brownie con Helado",
-        "description": "Brownie caliente con helado de vainilla",
+        "name": "Brownie with Ice Cream",
+        "description": "Warm brownie with vanilla ice cream",
         "price": 11000,
         "imageUrl": "assets/images/Brownie_con_Helado.jpg",
         "categoryId": "5f208862-5185-4a18-b7e3-cbfb13e8901d",
         "additions": [
           {
             "id": "5168cf34-0e32-48d2-9ad0-058bca213f68",
-            "name": "Helado Extra",
+            "name": "Extra Ice Cream",
             "price": 2000
           },
           {
             "id": "a11286b0-1ea6-4610-8738-2cd1ad9ca001",
-            "name": "Extra de Arequipe",
+            "name": "Extra Arequipe",
             "price": 1500
           },
           {
             "id": "b2dc41c1-20e5-4d63-8621-5ad37349dd02",
-            "name": "Extra de Chocolate",
+            "name": "Extra Chocolate",
             "price": 1500
           }
         ]
@@ -656,19 +656,19 @@
       {
         "id": "b364be20-9c19-453f-9b2a-7dd3c4d4e102",
         "name": "Flan",
-        "description": "Flan de caramelo casero",
+        "description": "Homemade caramel flan",
         "price": 8000,
         "imageUrl": "assets/images/Flan.jpg",
         "categoryId": "5f208862-5185-4a18-b7e3-cbfb13e8901d",
         "additions": [
           {
             "id": "a11286b0-1ea6-4610-8738-2cd1ad9ca001",
-            "name": "Extra de Arequipe",
+            "name": "Extra Arequipe",
             "price": 1500
           },
           {
             "id": "b2dc41c1-20e5-4d63-8621-5ad37349dd02",
-            "name": "Extra de Chocolate",
+            "name": "Extra Chocolate",
             "price": 1500
           }
         ]
@@ -676,119 +676,119 @@
       {
         "id": "658e5242-9e7c-431b-9d80-685842f74e9f",
         "name": "Cheesecake",
-        "description": "Cheesecake con coulis de frutos rojos",
+        "description": "Cheesecake with red berry coulis",
         "price": 12000,
         "imageUrl": "assets/images/Cheesecake.jpg",
         "categoryId": "5f208862-5185-4a18-b7e3-cbfb13e8901d",
         "additions": [
           {
             "id": "a11286b0-1ea6-4610-8738-2cd1ad9ca001",
-            "name": "Extra de Arequipe",
+            "name": "Extra Arequipe",
             "price": 1500
           },
           {
             "id": "b2dc41c1-20e5-4d63-8621-5ad37349dd02",
-            "name": "Extra de Chocolate",
+            "name": "Extra Chocolate",
             "price": 1500
           }
         ]
       },
       {
         "id": "6e5dbeb1-e53a-4d75-9b9a-a68ddd133768",
-        "name": "Helado Surtido",
-        "description": "Copa de helado mixto",
+        "name": "Assorted Ice Cream",
+        "description": "Mixed ice cream cup",
         "price": 7000,
         "imageUrl": "assets/images/Helado_Surtido.jpg",
         "categoryId": "5f208862-5185-4a18-b7e3-cbfb13e8901d",
         "additions": [
           {
             "id": "a11286b0-1ea6-4610-8738-2cd1ad9ca001",
-            "name": "Extra de Arequipe",
+            "name": "Extra Arequipe",
             "price": 1500
           },
           {
             "id": "b2dc41c1-20e5-4d63-8621-5ad37349dd02",
-            "name": "Extra de Chocolate",
+            "name": "Extra Chocolate",
             "price": 1500
           }
         ]
       },
       {
         "id": "45b51d8c-5a9f-4b01-855f-6b79f2a076b0",
-        "name": "Arroz con Leche",
-        "description": "Arroz con leche tradicional",
+        "name": "Rice Pudding",
+        "description": "Traditional rice pudding",
         "price": 6000,
         "imageUrl": "assets/images/Arroz_con_Leche.jpg",
         "categoryId": "5f208862-5185-4a18-b7e3-cbfb13e8901d",
         "additions": [
           {
             "id": "a11286b0-1ea6-4610-8738-2cd1ad9ca001",
-            "name": "Extra de Arequipe",
+            "name": "Extra Arequipe",
             "price": 1500
           },
           {
             "id": "b2dc41c1-20e5-4d63-8621-5ad37349dd02",
-            "name": "Extra de Chocolate",
+            "name": "Extra Chocolate",
             "price": 1500
           }
         ]
       },
       {
         "id": "bd3d971c-0de0-4677-b889-0407d55ce5c1",
-        "name": "Panqueques",
-        "description": "Panqueques con miel y frutas",
+        "name": "Pancakes",
+        "description": "Pancakes with honey and fruits",
         "price": 10000,
         "imageUrl": "assets/images/Panqueques.jpg",
         "categoryId": "5f208862-5185-4a18-b7e3-cbfb13e8901d",
         "additions": [
           {
             "id": "a11286b0-1ea6-4610-8738-2cd1ad9ca001",
-            "name": "Extra de Arequipe",
+            "name": "Extra Arequipe",
             "price": 1500
           },
           {
             "id": "b2dc41c1-20e5-4d63-8621-5ad37349dd02",
-            "name": "Extra de Chocolate",
+            "name": "Extra Chocolate",
             "price": 1500
           }
         ]
       },
       {
         "id": "83b53ac8-26aa-4109-bfe6-2f008ea15a8a",
-        "name": "Mousse de Chocolate",
-        "description": "Mousse ligero de chocolate",
+        "name": "Chocolate Mousse",
+        "description": "Light chocolate mousse",
         "price": 9500,
         "imageUrl": "assets/images/Mousse_de_Chocolate.jpg",
         "categoryId": "5f208862-5185-4a18-b7e3-cbfb13e8901d",
         "additions": [
           {
             "id": "a11286b0-1ea6-4610-8738-2cd1ad9ca001",
-            "name": "Extra de Arequipe",
+            "name": "Extra Arequipe",
             "price": 1500
           },
           {
             "id": "b2dc41c1-20e5-4d63-8621-5ad37349dd02",
-            "name": "Extra de Chocolate",
+            "name": "Extra Chocolate",
             "price": 1500
           }
         ]
       },
       {
         "id": "ea37efa6-4126-431d-8ca8-bd277bc14618",
-        "name": "Tarta de Manzana",
-        "description": "Tarta de manzana tibia",
+        "name": "Apple Pie",
+        "description": "Warm apple pie",
         "price": 10500,
         "imageUrl": "assets/images/Tarta_de_Manzana.jpg",
         "categoryId": "5f208862-5185-4a18-b7e3-cbfb13e8901d",
         "additions": [
           {
             "id": "a11286b0-1ea6-4610-8738-2cd1ad9ca001",
-            "name": "Extra de Arequipe",
+            "name": "Extra Arequipe",
             "price": 1500
           },
           {
             "id": "b2dc41c1-20e5-4d63-8621-5ad37349dd02",
-            "name": "Extra de Chocolate",
+            "name": "Extra Chocolate",
             "price": 1500
           }
         ]
@@ -796,19 +796,19 @@
       {
         "id": "261a23bd-8e29-4736-8b3d-34e191a6ace6",
         "name": "Churros",
-        "description": "Churros con chocolate",
+        "description": "Churros with chocolate",
         "price": 8500,
         "imageUrl": "assets/images/Churros.jpg",
         "categoryId": "5f208862-5185-4a18-b7e3-cbfb13e8901d",
         "additions": [
           {
             "id": "a11286b0-1ea6-4610-8738-2cd1ad9ca001",
-            "name": "Extra de Arequipe",
+            "name": "Extra Arequipe",
             "price": 1500
           },
           {
             "id": "b2dc41c1-20e5-4d63-8621-5ad37349dd02",
-            "name": "Extra de Chocolate",
+            "name": "Extra Chocolate",
             "price": 1500
           }
         ]

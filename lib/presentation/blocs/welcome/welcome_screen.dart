@@ -40,8 +40,12 @@ class _WelcomeScreenView extends StatelessWidget {
     return BlocListener<WelcomeBloc, WelcomeState>(
       listener: (context, state) {
         if (state is WelcomeNavigateToMenu) {
+          // 1. Guardamos la referencia al Bloc antes del async gap
+          final welcomeBloc = context.read<WelcomeBloc>();
+
           Navigator.pushNamed(context, '/menu').then((_) {
-            context.read<WelcomeBloc>().resetState();
+            // 2. Usamos la referencia directa sin tocar el context 🎉
+            welcomeBloc.resetState();
           });
         }
       },
@@ -85,7 +89,7 @@ class _WelcomeScreenView extends StatelessWidget {
                         color: theme.colorScheme.onSurface.withOpacity(0.7),
                       ),
                     ),
-                    
+
                     // Nombre del Restaurante
                     Text(
                       configState.restaurantName,
@@ -98,7 +102,10 @@ class _WelcomeScreenView extends StatelessWidget {
 
                     // Botón de Acción Traducido
                     Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 40,
+                        vertical: 20,
+                      ),
                       decoration: BoxDecoration(
                         color: theme.colorScheme.secondary,
                         borderRadius: BorderRadius.circular(50),
@@ -107,7 +114,7 @@ class _WelcomeScreenView extends StatelessWidget {
                             color: theme.colorScheme.secondary.withOpacity(0.4),
                             blurRadius: 20,
                             offset: const Offset(0, 10),
-                          )
+                          ),
                         ],
                       ),
                       child: Text(
@@ -143,7 +150,7 @@ class _WelcomeScreenView extends StatelessWidget {
                     _LanguageButton(label: 'EN', locale: 'en'),
                   ],
                 ),
-              )
+              ),
             ],
           ),
         ),

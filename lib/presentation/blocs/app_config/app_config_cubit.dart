@@ -91,7 +91,13 @@ class AppConfigCubit extends Cubit<AppConfigState> {
     }
   }
 
-  String translate(String key) {
-    return state.localizedStrings[key] ?? key;
+  String translate(String key, {Map<String, String>? replacements}) {
+    String translated = state.localizedStrings[key] ?? key;
+    if (replacements != null) {
+      for (final entry in replacements.entries) {
+        translated = translated.replaceAll(entry.key, entry.value);
+      }
+    }
+    return translated;
   }
 }

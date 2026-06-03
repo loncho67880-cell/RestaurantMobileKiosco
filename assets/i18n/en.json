@@ -1,5 +1,13 @@
 {
   "welcome_title": "Welcome to",
   "welcome_subtitle": "Tap the screen to start your order",
-  "welcome_call_to_action": "ORDER HERE"
+  "welcome_call_to_action": "ORDER HERE",
+  "orderSummary": "Order Summary",
+  "emptyCart": "Your cart is empty",
+  "additionsTitle": "Additions:",
+  "totalLabel": "Grand Total:",
+  "processPaymentBtn": "Process Payment",
+  "singleDish": "1 dish selected",
+  "multipleDishes": "{count} dishes selected",
+  "viewOrder": "View Order"
 }

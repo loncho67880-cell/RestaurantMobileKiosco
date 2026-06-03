@@ -1,5 +1,13 @@
 {
   "welcome_title": "Bienvenido a",
   "welcome_subtitle": "Toque la pantalla para comenzar su orden",
-  "welcome_call_to_action": "¡ORDENAR AQUÍ!"
+  "welcome_call_to_action": "¡ORDENAR AQUÍ!",
+  "orderSummary": "Resumen del Pedido",
+  "emptyCart": "Tu carrito está vacío",
+  "additionsTitle": "Adiciones:",
+  "totalLabel": "Total General:",
+  "processPaymentBtn": "Procesar Pago",
+  "singleDish": "1 plato seleccionado",
+  "multipleDishes": "{count} platos seleccionados",
+  "viewOrder": "Ver Pedido"
 }
