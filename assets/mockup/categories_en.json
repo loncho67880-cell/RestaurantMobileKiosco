@@ -119,7 +119,7 @@
         "name": "BBQ Ribs",
         "description": "Pork ribs in BBQ sauce",
         "price": 35000,
-        "imageUrl": "assets/images/Costillas_BBBQ.jpg",
+        "imageUrl": "assets/images/Costillas_BBQ.jpg",
         "categoryId": "a239ec89-a4af-4497-bd71-29958322a2f2",
         "additions": [
           {
@@ -552,7 +552,7 @@
         "name": "Coffee",
         "description": "Americano coffee",
         "price": 4000,
-        "imageUrl": "assets/images/Café.jpg",
+        "imageUrl": "assets/images/Cafe.jpg",
         "categoryId": "5bae9d9b-0759-409f-bd04-b87ad8ad7ad7",
         "additions": []
       },

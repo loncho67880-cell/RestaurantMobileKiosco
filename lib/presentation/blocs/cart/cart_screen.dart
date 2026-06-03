@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:restaurantmobile/domain/models/cartItem.dart';
 import 'package:restaurantmobile/presentation/blocs/cart/cart_bloc.dart';
-import 'package:restaurantmobile/presentation/blocs/cart/cart_event.dart' as cart_event;
+import 'package:restaurantmobile/presentation/blocs/cart/cart_event.dart'
+    as cart_event;
 import 'package:restaurantmobile/presentation/blocs/app_config/app_config_cubit.dart';
 
 class CartScreen extends StatelessWidget {
@@ -30,10 +31,7 @@ class CartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // (Nota: Si tu propiedad en el estado se llama 'languageCode' o similar, ajusta 'localeCode')
     final configCubit = context.read<AppConfigCubit>();
-    final String currentLang = configCubit.state.localizedStrings.keys.firstWhere(
-      (key) => configCubit.state.localizedStrings[key] != null,
-      orElse: () => 'es',
-    );
+    final String currentLang = configCubit.state.localeCode;
 
     // Filtramos los textos según el idioma activo del usuario
     final l10n = _localizedStrings[currentLang] ?? _localizedStrings['es']!;
@@ -43,7 +41,8 @@ class CartScreen extends StatelessWidget {
         title: Text(l10n['orderSummary']!),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
-          onPressed: () => Navigator.pop(context), // Regresa al menú para seguir adicionando
+          onPressed: () =>
+              Navigator.pop(context), // Regresa al menú para seguir adicionando
         ),
       ),
       body: BlocBuilder<CartBloc, CartState>(
@@ -51,8 +50,11 @@ class CartScreen extends StatelessWidget {
           if (state.items.isEmpty) {
             return Center(
               child: Text(
-                l10n['emptyCart']!, 
-                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                l10n['emptyCart']!,
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
             );
           }
@@ -64,7 +66,11 @@ class CartScreen extends StatelessWidget {
                   itemCount: state.items.length,
                   itemBuilder: (context, index) {
                     final item = state.items[index];
-                    return _CartItemTile(item: item, itemIndex: index, l10n: l10n);
+                    return _CartItemTile(
+                      item: item,
+                      itemIndex: index,
+                      l10n: l10n,
+                    );
                   },
                 ),
               ),
@@ -83,8 +89,8 @@ class _CartItemTile extends StatelessWidget {
   final Map<String, String> l10n;
 
   const _CartItemTile({
-    required this.item, 
-    required this.itemIndex, 
+    required this.item,
+    required this.itemIndex,
     required this.l10n,
   });
 
@@ -107,13 +113,19 @@ class _CartItemTile extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        item.dish.name, 
-                        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                        item.dish.name,
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                       const SizedBox(height: 4),
                       Text(
-                        '\$${item.dish.price.toStringAsFixed(0)}', 
-                        style: TextStyle(color: Colors.grey[600], fontWeight: FontWeight.w600),
+                        '\$${item.dish.price.toStringAsFixed(0)}',
+                        style: TextStyle(
+                          color: Colors.grey[600],
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                     ],
                   ),
@@ -122,40 +134,57 @@ class _CartItemTile extends StatelessWidget {
                 Row(
                   children: [
                     IconButton(
-                      icon: const Icon(Icons.remove_circle_outline, color: Colors.redAccent),
+                      icon: const Icon(
+                        Icons.remove_circle_outline,
+                        color: Colors.redAccent,
+                      ),
                       onPressed: () {
-                        context.read<CartBloc>().add(UpdateItemQuantityEvent(
-                          index: itemIndex, 
-                          newQuantity: item.quantity - 1,
-                        ));
+                        context.read<CartBloc>().add(
+                          UpdateItemQuantityEvent(
+                            index: itemIndex,
+                            newQuantity: item.quantity - 1,
+                          ),
+                        );
                       },
                     ),
                     Text(
-                      '${item.quantity}', 
-                      style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      '${item.quantity}',
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                     IconButton(
-                      icon: const Icon(Icons.add_circle_outline, color: Colors.green),
+                      icon: const Icon(
+                        Icons.add_circle_outline,
+                        color: Colors.green,
+                      ),
                       onPressed: () {
-                        context.read<CartBloc>().add(UpdateItemQuantityEvent(
-                          index: itemIndex, 
-                          newQuantity: item.quantity + 1,
-                        ));
+                        context.read<CartBloc>().add(
+                          UpdateItemQuantityEvent(
+                            index: itemIndex,
+                            newQuantity: item.quantity + 1,
+                          ),
+                        );
                       },
                     ),
                   ],
-                )
+                ),
               ],
             ),
-            
+
             // Render de adiciones seleccionadas (Chips interactivos con eliminación)
             if (item.additions.isNotEmpty) ...[
               const Divider(height: 20),
               Padding(
                 padding: const EdgeInsets.only(bottom: 6),
                 child: Text(
-                  l10n['additionsTitle']!, 
-                  style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold, color: Colors.grey[600]),
+                  l10n['additionsTitle']!,
+                  style: TextStyle(
+                    fontSize: 13,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.grey[600],
+                  ),
                 ),
               ),
               Wrap(
@@ -165,18 +194,26 @@ class _CartItemTile extends StatelessWidget {
                   return Chip(
                     backgroundColor: Colors.grey[100],
                     side: BorderSide(color: Colors.grey[300]!),
-                    label: Text('${addition.name} (+\$${addition.price.toStringAsFixed(0)})'),
-                    deleteIcon: const Icon(Icons.cancel, size: 18, color: Colors.grey),
+                    label: Text(
+                      '${addition.name} (+\$${addition.price.toStringAsFixed(0)})',
+                    ),
+                    deleteIcon: const Icon(
+                      Icons.cancel,
+                      size: 18,
+                      color: Colors.grey,
+                    ),
                     onDeleted: () {
-                      context.read<CartBloc>().add(RemoveAdditionFromItemEvent(
-                        itemIndex: itemIndex, 
-                        addition: addition,
-                      ));
+                      context.read<CartBloc>().add(
+                        RemoveAdditionFromItemEvent(
+                          itemIndex: itemIndex,
+                          addition: addition,
+                        ),
+                      );
                     },
                   );
                 }).toList(),
               ),
-            ]
+            ],
           ],
         ),
       ),
@@ -193,14 +230,21 @@ class _CartSummaryFooter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Suma total calculada de forma segura con punto flotante (double)
-    final total = items.fold<double>(0.0, (sum, item) => sum + (item.totalPrice * item.quantity));
+    final total = items.fold<double>(
+      0.0,
+      (sum, item) => sum + (item.totalPrice * item.quantity),
+    );
 
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: Colors.white,
         boxShadow: [
-          BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 10, offset: const Offset(0, -4)),
+          BoxShadow(
+            color: Colors.black.withOpacity(0.05),
+            blurRadius: 10,
+            offset: const Offset(0, -4),
+          ),
         ],
       ),
       child: SafeArea(
@@ -211,12 +255,19 @@ class _CartSummaryFooter extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  l10n['totalLabel']!, 
-                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  l10n['totalLabel']!,
+                  style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 Text(
-                  '\$${total.toStringAsFixed(0)}', 
-                  style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.deepOrange),
+                  '\$${total.toStringAsFixed(0)}',
+                  style: const TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.deepOrange,
+                  ),
                 ),
               ],
             ),
@@ -225,17 +276,30 @@ class _CartSummaryFooter extends StatelessWidget {
               width: double.infinity,
               height: 52,
               child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.deepOrange,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
-                  elevation: 2,
-                ),
                 onPressed: () {
-                  // TODO: Enlazar pasarela de pagos (Stripe, Wompi, etc.)
+                  final cartState = context.read<CartBloc>().state;
+
+                  final total = cartState.totalAmount;
+
+                  Navigator.of(
+                    context,
+                  ).pushNamed('/dataphone_payment', arguments: total);
                 },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Theme.of(
+                    context,
+                  ).primaryColor, // El color naranja actual
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
                 child: Text(
-                  l10n['processPaymentBtn']!, 
-                  style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+                  l10n['processPaymentBtn']!,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ),

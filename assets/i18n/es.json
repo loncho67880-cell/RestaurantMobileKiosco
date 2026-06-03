@@ -9,5 +9,18 @@
   "processPaymentBtn": "Procesar Pago",
   "singleDish": "1 plato seleccionado",
   "multipleDishes": "{count} platos seleccionados",
-  "viewOrder": "Ver Pedido"
+  "viewOrder": "Ver Pedido",
+  "payment_processing": "Procesando Pago",
+  "dataphone_instruction": "Sigue los pasos en el datáfono",
+  "dataphone_detail": "Acerca tu tarjeta, usa tu celular o inserta el chip en la terminal de pago física para completar el pedido.",
+  "total_to_pay": "Total a pagar:",
+  "cancel_transaction": "Cancelar Transacción",
+  "payment_success": "¡Pago Exitoso!",
+  "success_message": "En un momento te llamaremos para entregarte tu pedido.",
+  "thank_you": "¡Muchas gracias por tu compra!",
+  "understood": "Entendido",
+  "enhance_dish": "Mejora tu plato con los mejores extras:",
+  "no_additions": "Este plato no cuenta con adiciones disponibles.",
+  "confirm_add": "Confirmar y Agregar",
+  "added_snack": "Agregado: "
 }

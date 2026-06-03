@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:restaurantmobile/domain/models/addition.dart';
 import 'package:restaurantmobile/domain/models/dish.dart';
+import 'package:restaurantmobile/presentation/blocs/app_config/app_config_cubit.dart';
 import 'package:restaurantmobile/presentation/blocs/cart/cart_bloc.dart';
 import 'package:restaurantmobile/presentation/blocs/cart/cart_event.dart';
 import 'package:restaurantmobile/presentation/blocs/menu/menu_state.dart';
@@ -41,6 +42,8 @@ class DishesGrid extends StatelessWidget {
 
 void _showAdditionsBottomSheet(BuildContext outerContext, Dish dish) {
   final List<Addition> selectedAdditions = [];
+  // Obtenemos el cubit aquí para usarlo dentro del modal
+  final configCubit = outerContext.read<AppConfigCubit>();
 
   showModalBottomSheet(
     context: outerContext,
@@ -50,57 +53,43 @@ void _showAdditionsBottomSheet(BuildContext outerContext, Dish dish) {
       borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
     ),
     builder: (modalContext) {
-      // ⚠️ CRÍTICO: Asegúrate de que este 'return' exista aquí
       return StatefulBuilder(
         builder: (localContext, setModalState) {
           return Padding(
             padding: const EdgeInsets.all(20.0),
             child: Column(
-              mainAxisSize: MainAxisSize.min, // Hace que se adapte al contenido
+              mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Línea gris decorativa superior del modal
                 Center(
                   child: Container(
-                    width: 40,
-                    height: 4,
-                    margin: const EdgeInsets.only(bottom: 16),
-                    decoration: BoxDecoration(
-                      color: Colors.grey[300],
-                      borderRadius: BorderRadius.circular(2),
-                    ),
+                    width: 40, height: 4, margin: const EdgeInsets.only(bottom: 16),
+                    decoration: BoxDecoration(color: Colors.grey[300], borderRadius: BorderRadius.circular(2)),
                   ),
                 ),
                 Text(
                   dish.name,
-                  style: const TextStyle(
-                    fontSize: 22, 
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black, // Color explícito para evitar problemas de tema
-                  ),
+                  style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.black),
                 ),
-                const Text(
-                  'Mejora tu plato con los mejores extras:',
-                  style: TextStyle(color: Colors.grey, fontSize: 14),
+                Text(
+                  configCubit.translate('enhance_dish'), // 👈 Traducido
+                  style: const TextStyle(color: Colors.grey, fontSize: 14),
                 ),
                 const SizedBox(height: 16),
 
-                // Validación de seguridad: si el plato no tiene adiciones
                 if (dish.additions.isEmpty)
-                  const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 20),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 20),
                     child: Center(
                       child: Text(
-                        'Este plato no cuenta con adiciones disponibles.',
-                        style: TextStyle(color: Colors.grey, fontStyle: FontStyle.italic),
+                        configCubit.translate('no_additions'), // 👈 Traducido
+                        style: const TextStyle(color: Colors.grey, fontStyle: FontStyle.italic),
                       ),
                     ),
                   )
                 else
-                  // Lista dinámica de adiciones usando spread operator (sin ListViews infinitos)
                   ...dish.additions.map((addition) {
                     final isSelected = selectedAdditions.contains(addition);
-
                     return Container(
                       margin: const EdgeInsets.only(bottom: 8),
                       decoration: BoxDecoration(
@@ -108,10 +97,7 @@ void _showAdditionsBottomSheet(BuildContext outerContext, Dish dish) {
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: CheckboxListTile(
-                        title: Text(
-                          addition.name,
-                          style: const TextStyle(fontWeight: FontWeight.w500, color: Colors.black),
-                        ),
+                        title: Text(addition.name, style: const TextStyle(fontWeight: FontWeight.w500, color: Colors.black)),
                         secondary: Text(
                           '+ \$${addition.price.toStringAsFixed(0)}',
                           style: TextStyle(color: Colors.grey[700], fontWeight: FontWeight.bold),
@@ -120,13 +106,8 @@ void _showAdditionsBottomSheet(BuildContext outerContext, Dish dish) {
                         activeColor: Colors.deepOrange,
                         controlAffinity: ListTileControlAffinity.leading,
                         onChanged: (bool? checked) {
-                          // setModalState refresca únicamente el modal de forma reactiva
                           setModalState(() {
-                            if (checked == true) {
-                              selectedAdditions.add(addition);
-                            } else {
-                              selectedAdditions.remove(addition);
-                            }
+                            checked == true ? selectedAdditions.add(addition) : selectedAdditions.remove(addition);
                           });
                         },
                       ),
@@ -134,40 +115,26 @@ void _showAdditionsBottomSheet(BuildContext outerContext, Dish dish) {
                   }).toList(),
 
                 const SizedBox(height: 20),
-
-                // Botón de Confirmación
                 SizedBox(
                   width: double.infinity,
                   height: 50,
                   child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.deepOrange,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(14),
-                      ),
-                    ),
+                    style: ElevatedButton.styleFrom(backgroundColor: Colors.deepOrange, shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14))),
                     onPressed: () {
-                      // 1. Cerramos la vista del modal
                       Navigator.pop(modalContext);
-
-                      // 2. Despachamos el evento con el contexto de la pantalla principal
-                      outerContext.read<CartBloc>().add(AddDishEvent(
-                            dish: dish,
-                            additions: selectedAdditions,
-                          ));
-
-                      // 3. Notificación de éxito
+                      outerContext.read<CartBloc>().add(AddDishEvent(dish: dish, additions: selectedAdditions));
+                      
                       ScaffoldMessenger.of(outerContext).showSnackBar(
                         SnackBar(
                           content: Text(
-                            "Agregado: ${dish.name} ${selectedAdditions.isEmpty ? 'sin adiciones' : 'con extras'}",
+                            "${configCubit.translate('added_snack')}${dish.name}", // 👈 Traducido
                           ),
                         ),
                       );
                     },
-                    child: const Text(
-                      'Confirmar y Agregar',
-                      style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+                    child: Text(
+                      configCubit.translate('confirm_add'), // 👈 Traducido
+                      style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),
@@ -216,7 +183,6 @@ void _showAdditionsBottomSheet(BuildContext outerContext, Dish dish) {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                // Imagen del Plato
                 Expanded(
                   flex: 10,
                   child: ClipRRect(
@@ -225,12 +191,7 @@ void _showAdditionsBottomSheet(BuildContext outerContext, Dish dish) {
                     ),
                     child: Builder(
                       builder: (context) {
-                        final formattedName = dish.name.trim().replaceAll(
-                          ' ',
-                          '_',
-                        );
-                        final finalAssetPath =
-                            'assets/images/$formattedName.jpg';
+                        final finalAssetPath = dish.imageUrl;
 
                         return Image.asset(
                           finalAssetPath,

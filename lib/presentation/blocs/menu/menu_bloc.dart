@@ -14,7 +14,6 @@ class MenuBloc extends Bloc<MenuEvent, MenuState> {
   Future<void> _onLoadMenu(LoadMenuEvent event, Emitter<MenuState> emit) async {
     emit(MenuLoading());
     try {
-      // Usamos el método que filtra por idioma pasando el localeCode del evento
       final categories = await menuRepository.loadCategories(event.localeCode ?? 'es');
 
       if (categories.isNotEmpty) {

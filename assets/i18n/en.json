@@ -9,5 +9,18 @@
   "processPaymentBtn": "Process Payment",
   "singleDish": "1 dish selected",
   "multipleDishes": "{count} dishes selected",
-  "viewOrder": "View Order"
+  "viewOrder": "View Order",
+  "payment_processing": "Processing Payment",
+  "dataphone_instruction": "Follow the steps on the terminal",
+  "dataphone_detail": "Tap your card, use your phone, or insert the chip into the physical payment terminal to complete the order.",
+  "total_to_pay": "Total to pay:",
+  "cancel_transaction": "Cancel Transaction",
+  "payment_success": "Payment Successful!",
+  "success_message": "We will call you in a moment to deliver your order.",
+  "thank_you": "Thank you very much for your purchase!",
+  "understood": "Understood",
+  "enhance_dish": "Enhance your dish with the best extras:",
+  "no_additions": "This dish has no additions available.",
+  "confirm_add": "Confirm and Add",
+  "added_snack": "Added: "
 }

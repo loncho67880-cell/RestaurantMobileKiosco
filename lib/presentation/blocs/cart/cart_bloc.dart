@@ -97,8 +97,10 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     }
   }
 
+  // Agrega el método al final:
   void _onClearCart(ClearCartEvent event, Emitter<CartState> emit) {
-    emit(const CartState());
+    // Emitimos un estado vacío, reiniciando la lista de items
+    emit(const CartState(items: [])); 
   }
 }
 

@@ -7,12 +7,14 @@ class AppConfigState {
   final ThemeData themeData;
   final Map<String, String> localizedStrings;
   final String restaurantName;
+  final String localeCode;
   final bool isLoading;
 
   AppConfigState({
     required this.themeData,
     required this.localizedStrings,
     required this.restaurantName,
+    required this.localeCode,
     this.isLoading = false,
   });
 
@@ -21,6 +23,7 @@ class AppConfigState {
       themeData: ThemeData.light(),
       localizedStrings: {},
       restaurantName: '',
+      localeCode: 'es',
       isLoading: true,
     );
   }
@@ -29,12 +32,14 @@ class AppConfigState {
     ThemeData? themeData,
     Map<String, String>? localizedStrings,
     String? restaurantName,
+    String? localeCode,
     bool? isLoading,
   }) {
     return AppConfigState(
       themeData: themeData ?? this.themeData,
       localizedStrings: localizedStrings ?? this.localizedStrings,
       restaurantName: restaurantName ?? this.restaurantName,
+      localeCode: localeCode ?? this.localeCode,
       isLoading: isLoading ?? this.isLoading,
     );
   }
@@ -83,6 +88,7 @@ class AppConfigCubit extends Cubit<AppConfigState> {
         themeData: customTheme,
         localizedStrings: localized,
         restaurantName: themeJson['restaurantName'] ?? 'Restaurante',
+        localeCode: locale,
         isLoading: false,
       ));
     } catch (e) {

@@ -9,7 +9,7 @@ abstract class MenuEvent extends Equatable {
 
 class LoadMenuEvent extends MenuEvent {
   final String? localeCode;
-  const LoadMenuEvent({this.localeCode = 'es'});
+  const LoadMenuEvent({this.localeCode});
 
   @override
   List<Object?> get props => [localeCode];

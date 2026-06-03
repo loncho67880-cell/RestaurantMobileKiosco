@@ -31,10 +31,6 @@ class RemoveDishEvent extends CartEvent {
   List<Object?> get props => [dish];
 }
 
-// lib/presentation/blocs/cart/cart_event.dart
-
-// ... (Tus eventos anteriores: AddDishEvent, ClearCartEvent, etc.) ...
-
 class UpdateItemQuantityEvent extends CartEvent {
   final int index;
   final int newQuantity;

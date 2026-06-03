@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:restaurantmobile/domain/models/cartItem.dart';
 import 'package:restaurantmobile/presentation/blocs/cart/cart_bloc.dart';
 import 'package:restaurantmobile/presentation/blocs/app_config/app_config_cubit.dart';
+import 'package:restaurantmobile/presentation/blocs/cart/cart_screen.dart';
 
 class FloatingCartBar extends StatelessWidget {
   const FloatingCartBar({super.key});
@@ -15,10 +16,8 @@ class FloatingCartBar extends StatelessWidget {
     // 🚀 Escuchamos los cambios del CartBloc en tiempo real
     return BlocBuilder<CartBloc, CartState>(
       builder: (context, state) {
-        
         // 1. Obtenemos la lista de platos del estado actual del carrito
-        // ⚠️ (Ajusta 'state.items' si tu lista en el CartState se llama diferente, ej: state.dishes)
-        final items = state.items; 
+        final items = state.items;
 
         // Si el usuario no ha agregado nada, ocultamos la barra por completo
         if (items.isEmpty) {
@@ -29,7 +28,10 @@ class FloatingCartBar extends StatelessWidget {
         final totalItems = items.length;
 
         // 3. Calculamos el precio total sumando el valor de cada plato
-        final totalPrice = items.fold<double>(0.0, (sum, item) => sum + (item.totalPrice ?? 0.0));
+        final totalPrice = items.fold<double>(
+          0.0,
+          (sum, item) => sum + (item.totalPrice ?? 0.0),
+        );
 
         return SafeArea(
           child: Container(
@@ -78,7 +80,7 @@ class FloatingCartBar extends StatelessWidget {
                             constraints: const BoxConstraints(
                               minWidth: 18,
                               minHeight: 18,
-                        ),
+                            ),
                             child: Text(
                               '$totalItems', // 🔥 Cantidad dinámica en el Badge
                               style: TextStyle(
@@ -98,9 +100,14 @@ class FloatingCartBar extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          totalItems == 1 
-                              ? configCubit.translate('singleDish') 
-                              : configCubit.translate('multipleDishes', replacements: {'{count}': totalItems.toString()}),
+                          totalItems == 1
+                              ? configCubit.translate('singleDish')
+                              : configCubit.translate(
+                                  'multipleDishes',
+                                  replacements: {
+                                    '{count}': totalItems.toString(),
+                                  },
+                                ),
                           style: const TextStyle(
                             color: Colors.white70,
                             fontSize: 12,
@@ -110,7 +117,7 @@ class FloatingCartBar extends StatelessWidget {
                         const SizedBox(height: 2),
                         Text(
                           // 🔥 Precio total dinámico
-                          "\$$totalPrice", 
+                          "\$$totalPrice",
                           style: const TextStyle(
                             color: Colors.white,
                             fontSize: 20,
@@ -124,12 +131,20 @@ class FloatingCartBar extends StatelessWidget {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    // Acción para ir a la pantalla de resumen del pedido
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const CartScreen(),
+                      ),
+                    );
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
                     foregroundColor: theme.colorScheme.primary,
-                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 12,
+                    ),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(16),
                     ),

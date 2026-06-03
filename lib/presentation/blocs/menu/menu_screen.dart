@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:restaurantmobile/domain/models/cartItem.dart';
 import 'package:restaurantmobile/infrastructure/repositories/menu_repository.dart';
+import 'package:restaurantmobile/presentation/blocs/app_config/app_config_cubit.dart';
 import 'package:restaurantmobile/presentation/blocs/cart/cart_bloc.dart';
 import 'package:restaurantmobile/presentation/blocs/menu/floating_cartbar.dart';
 import 'package:restaurantmobile/presentation/blocs/menu/menu_bloc.dart';
@@ -15,20 +15,17 @@ class MenuScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // 1. Leemos el idioma actual guardado en el estado global de la App
+    final currentLocale = context.read<AppConfigCubit>().state.localeCode;
+
     return RepositoryProvider(
       create: (context) => MenuRepository(),
-      child: MultiBlocProvider(
-        // 👈 Cambiado a MultiBlocProvider
-        providers: [
-          BlocProvider(
-            create: (context) =>
-                MenuBloc(menuRepository: context.read<MenuRepository>())
-                  ..add(LoadMenuEvent()),
-          ),
-          BlocProvider(
-            create: (context) => CartBloc(), // 👈 Inyectamos el nuevo CartBloc
-          ),
-        ],
+      child: BlocProvider(
+        // 👈 Volvemos a un solo BlocProvider clásico
+        create: (context) =>
+            MenuBloc(menuRepository: context.read<MenuRepository>())..add(
+              LoadMenuEvent(localeCode: currentLocale),
+            ), // Tu fix del idioma se queda intacto 🚀
         child: const _MenuView(),
       ),
     );
