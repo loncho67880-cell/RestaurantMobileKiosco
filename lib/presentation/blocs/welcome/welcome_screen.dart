@@ -63,7 +63,7 @@ class _WelcomeScreenView extends StatelessWidget {
                     end: Alignment.bottomCenter,
                     colors: [
                       theme.colorScheme.surface,
-                      theme.colorScheme.background.withOpacity(0.8),
+                      theme.colorScheme.surface.withValues(alpha: 0.8),
                     ],
                   ),
                 ),
@@ -86,7 +86,7 @@ class _WelcomeScreenView extends StatelessWidget {
                       configCubit.translate('welcome_title'),
                       style: theme.textTheme.displayMedium?.copyWith(
                         fontWeight: FontWeight.w300,
-                        color: theme.colorScheme.onSurface.withOpacity(0.7),
+                        color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
                       ),
                     ),
 
@@ -111,7 +111,7 @@ class _WelcomeScreenView extends StatelessWidget {
                         borderRadius: BorderRadius.circular(50),
                         boxShadow: [
                           BoxShadow(
-                            color: theme.colorScheme.secondary.withOpacity(0.4),
+                            color: theme.colorScheme.secondary.withValues(alpha: 0.4),
                             blurRadius: 20,
                             offset: const Offset(0, 10),
                           ),
@@ -131,7 +131,7 @@ class _WelcomeScreenView extends StatelessWidget {
                     Text(
                       configCubit.translate('welcome_subtitle'),
                       style: theme.textTheme.bodyMedium?.copyWith(
-                        color: theme.colorScheme.onSurface.withOpacity(0.5),
+                        color: theme.colorScheme.onSurface.withValues(alpha: 0.5),
                         fontStyle: FontStyle.italic,
                       ),
                     ),

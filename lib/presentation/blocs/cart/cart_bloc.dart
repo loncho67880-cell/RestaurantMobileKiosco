@@ -109,11 +109,11 @@ class CartBloc extends Bloc<CartEvent, CartState> {
 class UpdateItemQuantityEvent extends CartEvent {
   final int index;
   final int newQuantity;
-  UpdateItemQuantityEvent({required this.index, required this.newQuantity});
+  const UpdateItemQuantityEvent({required this.index, required this.newQuantity});
 }
 
 class RemoveAdditionFromItemEvent extends CartEvent {
   final int itemIndex;
   final Addition addition;
-  RemoveAdditionFromItemEvent({required this.itemIndex, required this.addition});
+  const RemoveAdditionFromItemEvent({required this.itemIndex, required this.addition});
 }

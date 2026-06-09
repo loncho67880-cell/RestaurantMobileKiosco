@@ -112,7 +112,7 @@ void _showAdditionsBottomSheet(BuildContext outerContext, Dish dish) {
                         },
                       ),
                     );
-                  }).toList(),
+                  }),
 
                 const SizedBox(height: 20),
                 SizedBox(

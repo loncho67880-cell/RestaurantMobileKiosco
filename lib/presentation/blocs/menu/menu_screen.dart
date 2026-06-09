@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:restaurantmobile/infrastructure/repositories/menu_repository.dart';
 import 'package:restaurantmobile/presentation/blocs/app_config/app_config_cubit.dart';
-import 'package:restaurantmobile/presentation/blocs/cart/cart_bloc.dart';
 import 'package:restaurantmobile/presentation/blocs/menu/floating_cartbar.dart';
 import 'package:restaurantmobile/presentation/blocs/menu/menu_bloc.dart';
 import 'package:restaurantmobile/presentation/blocs/menu/menu_event.dart';
