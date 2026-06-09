@@ -11,35 +11,6 @@ class DishesGrid extends StatelessWidget {
   final MenuLoaded state;
   const DishesGrid({super.key, required this.state});
 
-  // 🍔 1. Actualizamos esta función para que devuelva objetos con Nombre y Precio
-  List<dynamic> _getAdditionsForCategory(String categoryName) {
-    final nameLower = categoryName.toLowerCase();
-
-    // Aquí puedes usar tu modelo 'Addition(name: ..., price: ...)' si ya lo tienes creado
-    if (nameLower.contains('carne') || nameLower.contains('meat')) {
-      return [
-        {'name': 'Chimichurri', 'price': 2500},
-        {'name': 'Guacamole', 'price': 4000},
-        {'name': 'Papas fritas', 'price': 5500},
-      ];
-    } else if (nameLower.contains('postre') || nameLower.contains('dessert')) {
-      return [
-        {'name': 'Extra de Arequipe', 'price': 2000},
-        {'name': 'Extra de Chocolate', 'price': 2000},
-        {'name': 'Crema Batida', 'price': 1500},
-      ];
-    } else if (nameLower.contains('bebida') || nameLower.contains('drink')) {
-      return [
-        {'name': 'Hielo extra', 'price': 500},
-        {'name': 'Limón', 'price': 800},
-        {'name': 'Leche condensada', 'price': 2500},
-      ];
-    }
-    return [
-      {'name': 'Porción extra', 'price': 3000},
-    ];
-  }
-
   void _showAdditionsBottomSheet(BuildContext outerContext, Dish dish) {
     final List<Addition> selectedAdditions = [];
     // Obtenemos el cubit aquí para usarlo dentro del modal
@@ -200,7 +171,8 @@ class DishesGrid extends StatelessWidget {
         crossAxisCount: crossAxisCount,
         crossAxisSpacing: 16,
         mainAxisSpacing: 16,
-        childAspectRatio: 0.8,
+        // Cambia 0.8 por 0.65 o 0.7 para dar más espacio vertical en pantallas pequeñas
+        childAspectRatio: MediaQuery.of(context).size.width < 600 ? 0.55 : 0.8,
       ),
       itemBuilder: (context, index) {
         final dish = activeCategory.dishes[index];
@@ -231,69 +203,79 @@ class DishesGrid extends StatelessWidget {
                         final finalAssetPath = dish.imageUrl;
 
                         return // Ejemplo de implementación robusta
-                              SizedBox(
-                                width: 150, // Define un ancho fijo
-                                height: 150, // Define un alto fijo
-                                child: Image.network(
-                                  dish.imageUrl,
-                                  fit: BoxFit.cover,
-                                  loadingBuilder: (context, child, loadingProgress) {
-                                    if (loadingProgress == null) return child;
-                                    return const Center(child: CircularProgressIndicator());
-                                  },
-                                  errorBuilder: (context, error, stackTrace) {
-                                    // Esto te dirá exactamente por qué falla en la consola de depuración
-                                    print('Error cargando imagen: $error'); 
-                                    return const Icon(Icons.broken_image, size: 50, color: Colors.grey);
-                                  },
-                                ),
+                        SizedBox(
+                          width: 150, // Define un ancho fijo
+                          height: 150, // Define un alto fijo
+                          child: Image.network(
+                            dish.imageUrl,
+                            fit: BoxFit.cover,
+                            loadingBuilder: (context, child, loadingProgress) {
+                              if (loadingProgress == null) return child;
+                              return const Center(
+                                child: CircularProgressIndicator(),
                               );
+                            },
+                            errorBuilder: (context, error, stackTrace) {
+                              // Esto te dirá exactamente por qué falla en la consola de depuración
+                              print('Error cargando imagen: $error');
+                              return const Icon(
+                                Icons.broken_image,
+                                size: 50,
+                                color: Colors.grey,
+                              );
+                            },
+                          ),
+                        );
                       },
                     ),
                   ),
                 ),
-                // ... dentro de tu itemBuilder, en la parte de detalles (flex: 4)
                 Expanded(
                   flex: 4,
                   child: Padding(
-                    padding: const EdgeInsets.all(12),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 12,
+                      vertical: 8,
+                    ), // Ajuste de padding
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment
+                          .spaceBetween, // Distribuye el espacio entre elementos
                       children: [
-                        // Envolvemos los textos en un Flexible para que respeten el espacio de la Card
+                        // Nombre: Mantenemos el tamaño, pero aseguramos que use el espacio superior
+                        Text(
+                          dish.name,
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+
+                        // Descripción: Reducimos un poco el tamaño de fuente para que quepa más texto
+                        // y usamos Flexible para que se adapte al espacio que sobra.
                         Flexible(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                dish.name,
-                                style: const TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18,
-                                ),
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                              const SizedBox(height: 4),
-                              Text(
-                                dish.description,
-                                style: TextStyle(
-                                  color: Colors.grey[600],
-                                  fontSize: 13,
-                                ),
-                                maxLines: 2,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                            ],
+                          child: Text(
+                            dish.description,
+                            style: TextStyle(
+                              color: Colors.grey[600],
+                              fontSize:
+                                  11, // Un poco más pequeño para mejorar legibilidad
+                            ),
+                            maxLines:
+                                2, // Mantenemos 2 líneas para no agrandar demasiado la tarjeta
+                            overflow: TextOverflow.ellipsis,
                           ),
                         ),
+
+                        // Precio: Mantenemos visibilidad
                         Text(
                           "\$${dish.price.toStringAsFixed(0)}",
                           style: TextStyle(
                             color: theme.colorScheme.primary,
                             fontWeight: FontWeight.bold,
-                            fontSize: 18,
+                            fontSize: 16,
                           ),
                         ),
                       ],
