@@ -161,130 +161,145 @@ class DishesGrid extends StatelessWidget {
     final activeCategory = state.selectedCategory;
     final theme = Theme.of(context);
 
-    final orientation = MediaQuery.of(context).orientation;
-    final int crossAxisCount = (orientation == Orientation.portrait) ? 2 : 3;
-
-    return GridView.builder(
-      padding: const EdgeInsets.all(16),
-      itemCount: activeCategory.dishes.length,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: crossAxisCount,
-        crossAxisSpacing: 16,
-        mainAxisSpacing: 16,
-        // Cambia 0.8 por 0.65 o 0.7 para dar más espacio vertical en pantallas pequeñas
-        childAspectRatio: MediaQuery.of(context).size.width < 600 ? 0.55 : 0.8,
-      ),
-      itemBuilder: (context, index) {
-        final dish = activeCategory.dishes[index];
-
-        return Card(
-          elevation: 4,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        // 1. Definimos cuántas columnas queremos según el ancho disponible
+        int crossAxisCount = 2; // Default para móviles
+        if (constraints.maxWidth > 800) {
+          crossAxisCount = 3; // Para monitores normales
+        }
+        if (constraints.maxWidth > 1200) {
+          crossAxisCount = 4; // Para monitores normales
+        }
+        if (constraints.maxWidth > 1600) {
+          crossAxisCount = 6; // Para monitores ultrawide
+        }
+        return GridView.builder(
+          padding: const EdgeInsets.all(16),
+          itemCount: activeCategory.dishes.length,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: crossAxisCount,
+            crossAxisSpacing: 16,
+            mainAxisSpacing: 16,
+            // Cambia 0.8 por 0.65 o 0.7 para dar más espacio vertical en pantallas pequeñas
+            childAspectRatio: MediaQuery.of(context).size.width < 600
+                ? 0.55
+                : 0.8,
           ),
-          color: theme.colorScheme.surface,
-          child: InkWell(
-            onTap: () {
-              // Llama correctamente a la función interna renovada
-              _showAdditionsBottomSheet(context, dish);
-            },
-            borderRadius: BorderRadius.circular(16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Expanded(
-                  flex: 10,
-                  child: ClipRRect(
-                    borderRadius: const BorderRadius.vertical(
-                      top: Radius.circular(16),
-                    ),
-                    child: Builder(
-                      builder: (context) {
-                        final finalAssetPath = dish.imageUrl;
+          itemBuilder: (context, index) {
+            final dish = activeCategory.dishes[index];
 
-                        return // Ejemplo de implementación robusta
-                        SizedBox(
-                          width: 150, // Define un ancho fijo
-                          height: 150, // Define un alto fijo
-                          child: Image.network(
-                            dish.imageUrl,
-                            fit: BoxFit.cover,
-                            loadingBuilder: (context, child, loadingProgress) {
-                              if (loadingProgress == null) return child;
-                              return const Center(
-                                child: CircularProgressIndicator(),
-                              );
-                            },
-                            errorBuilder: (context, error, stackTrace) {
-                              // Esto te dirá exactamente por qué falla en la consola de depuración
-                              print('Error cargando imagen: $error');
-                              return const Icon(
-                                Icons.broken_image,
-                                size: 50,
-                                color: Colors.grey,
-                              );
-                            },
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                ),
-                Expanded(
-                  flex: 4,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 12,
-                      vertical: 8,
-                    ), // Ajuste de padding
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment
-                          .spaceBetween, // Distribuye el espacio entre elementos
-                      children: [
-                        // Nombre: Mantenemos el tamaño, pero aseguramos que use el espacio superior
-                        Text(
-                          dish.name,
-                          style: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
-                          ),
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
+            return Card(
+              elevation: 4,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
+              color: theme.colorScheme.surface,
+              child: InkWell(
+                onTap: () {
+                  // Llama correctamente a la función interna renovada
+                  _showAdditionsBottomSheet(context, dish);
+                },
+                borderRadius: BorderRadius.circular(16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Expanded(
+                      flex: 10,
+                      child: ClipRRect(
+                        borderRadius: const BorderRadius.vertical(
+                          top: Radius.circular(16),
                         ),
+                        child: Builder(
+                          builder: (context) {
+                            final finalAssetPath = dish.imageUrl;
 
-                        // Descripción: Reducimos un poco el tamaño de fuente para que quepa más texto
-                        // y usamos Flexible para que se adapte al espacio que sobra.
-                        Flexible(
-                          child: Text(
-                            dish.description,
-                            style: TextStyle(
-                              color: Colors.grey[600],
-                              fontSize:
-                                  11, // Un poco más pequeño para mejorar legibilidad
+                            return // Ejemplo de implementación robusta
+                            SizedBox(
+                              width: 150, // Define un ancho fijo
+                              height: 150, // Define un alto fijo
+                              child: Image.network(
+                                dish.imageUrl,
+                                fit: BoxFit.cover,
+                                loadingBuilder:
+                                    (context, child, loadingProgress) {
+                                      if (loadingProgress == null) return child;
+                                      return const Center(
+                                        child: CircularProgressIndicator(),
+                                      );
+                                    },
+                                errorBuilder: (context, error, stackTrace) {
+                                  // Esto te dirá exactamente por qué falla en la consola de depuración
+                                  print('Error cargando imagen: $error');
+                                  return const Icon(
+                                    Icons.broken_image,
+                                    size: 50,
+                                    color: Colors.grey,
+                                  );
+                                },
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 4,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 12,
+                          vertical: 8,
+                        ), // Ajuste de padding
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment
+                              .spaceBetween, // Distribuye el espacio entre elementos
+                          children: [
+                            // Nombre: Mantenemos el tamaño, pero aseguramos que use el espacio superior
+                            Text(
+                              dish.name,
+                              style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+                              ),
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
                             ),
-                            maxLines:
-                                2, // Mantenemos 2 líneas para no agrandar demasiado la tarjeta
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                        ),
 
-                        // Precio: Mantenemos visibilidad
-                        Text(
-                          "\$${dish.price.toStringAsFixed(0)}",
-                          style: TextStyle(
-                            color: theme.colorScheme.primary,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
-                          ),
+                            // Descripción: Reducimos un poco el tamaño de fuente para que quepa más texto
+                            // y usamos Flexible para que se adapte al espacio que sobra.
+                            Flexible(
+                              child: Text(
+                                dish.description,
+                                style: TextStyle(
+                                  color: Colors.grey[600],
+                                  fontSize:
+                                      11, // Un poco más pequeño para mejorar legibilidad
+                                ),
+                                maxLines:
+                                    2, // Mantenemos 2 líneas para no agrandar demasiado la tarjeta
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+
+                            // Precio: Mantenemos visibilidad
+                            Text(
+                              "\$${dish.price.toStringAsFixed(0)}",
+                              style: TextStyle(
+                                color: theme.colorScheme.primary,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+                              ),
+                            ),
+                          ],
                         ),
-                      ],
+                      ),
                     ),
-                  ),
+                  ],
                 ),
-              ],
-            ),
-          ),
+              ),
+            );
+          },
         );
       },
     );
