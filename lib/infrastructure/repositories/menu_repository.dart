@@ -1,36 +1,45 @@
 import 'dart:convert';
-import 'package:flutter/services.dart';
+import 'dart:io';
+import 'package:http/http.dart' as http;
 import '../../domain/models/category_menu.dart';
 
 class MenuRepository {
-  Future<List<CategoryMenu>> getMenuData() async {
-    // Simulamos un pequeño delay de red para que el Shimmer/Loader del Kiosco se aprecie
-    await Future.delayed(const Duration(milliseconds: 600));
+  // Ajusta esta URL a tu configuración (recuerda que en emulador Android 'localhost' es '10.0.2.2')
+  final String baseUrl = "https://ca96-2803-1800-1317-69fb-41b2-4960-4bd0-4f84.ngrok-free.app/api";
 
-    final String response = await rootBundle.loadString(
-      'assets/mockup/categories.json',
+  Future<List<CategoryMenu>> loadCategories(
+    String localeCode,
+    String restaurantId,
+    String branchId,
+  ) async {
+    final url = Uri.parse(
+      '$baseUrl/categories?lang=$localeCode&restaurantId=$restaurantId&branchId=$branchId',
     );
-    final List<dynamic> data = json.decode(response);
 
-    final categories = data.map((cat) => CategoryMenu.fromJson(cat)).toList();
-    // Los ordenamos según la propiedad "order" definida en tu backend
-    categories.sort((a, b) => a.order.compareTo(b.order));
+    try {
+      final response = await http.get(
+        url,
+        headers: {"Accept": "application/json"},
+      );
 
-    return categories;
-  }
-
-  Future<List<CategoryMenu>> loadCategories(String localeCode) async {
-    // 1. Apuntamos al archivo correspondiente de manera dinámica
-    final String path = localeCode == 'en'
-        ? 'assets/mockup/categories_en.json'
-        : 'assets/mockup/categories.json'; // Tu fallback por defecto en español
-
-    final String response = await rootBundle.loadString(path);
-    final List<dynamic> data = json.decode(response);
-
-    // Mapeas a tu modelo de dominio normalmente
-    return (data)
-        .map((category) => CategoryMenu.fromJson(category))
-        .toList();
+      if (response.statusCode == 200) {
+        // Éxito: parsea el JSON
+        final List<dynamic> data = json.decode(response.body);
+        return data.map((e) => CategoryMenu.fromJson(e)).toList();
+      } else {
+        // Error de servidor (404, 500, etc.)
+        throw Exception(
+          'Error del servidor: ${response.statusCode} - ${response.body}',
+        );
+      }
+    } on SocketException catch (e) {
+      // Error de red (No hay internet, servidor no encontrado, timeout)
+      throw Exception(
+        'Error de conexión: Verifica que tu IP sea correcta y el backend esté encendido. Detalle: ${e.message}',
+      );
+    } catch (e) {
+      // Otro error
+      throw Exception('Error inesperado: $e');
+    }
   }
 }

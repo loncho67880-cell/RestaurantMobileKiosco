@@ -38,6 +38,7 @@ dependencies:
   equatable: ^2.0.8
   google_fonts: ^8.1.0
   web: ^1.1.1
+  http: ^1.2.0
 
 dev_dependencies:
   flutter_test:

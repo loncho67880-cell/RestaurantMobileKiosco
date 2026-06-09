@@ -14,13 +14,18 @@ class MenuBloc extends Bloc<MenuEvent, MenuState> {
   Future<void> _onLoadMenu(LoadMenuEvent event, Emitter<MenuState> emit) async {
     emit(MenuLoading());
     try {
-      final categories = await menuRepository.loadCategories(event.localeCode ?? 'es');
+      // Pasamos los 3 parámetros necesarios que ahora exige tu API
+      final categories = await menuRepository.loadCategories(
+        event.localeCode ?? 'es',
+        event.restaurantId, // Nuevo parámetro
+        event.branchId,     // Nuevo parámetro
+      );
 
       if (categories.isNotEmpty) {
         emit(
           MenuLoaded(
             categories: categories,
-            selectedCategoryId: categories.first.id, // Por defecto la primera
+            selectedCategoryId: categories.first.id,
           ),
         );
       } else {

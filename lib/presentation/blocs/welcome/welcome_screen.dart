@@ -44,7 +44,7 @@ class _WelcomeScreenView extends StatelessWidget {
           final welcomeBloc = context.read<WelcomeBloc>();
 
           Navigator.pushNamed(context, '/menu').then((_) {
-            // 2. Usamos la referencia directa sin tocar el context 🎉
+            // 2. Usamos la referencia directa sin tocar el context
             welcomeBloc.resetState();
           });
         }

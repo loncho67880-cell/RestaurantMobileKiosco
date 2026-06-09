@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:restaurantmobile/domain/models/cartItem.dart';
 import 'package:restaurantmobile/presentation/blocs/cart/cart_bloc.dart';
-import 'package:restaurantmobile/presentation/blocs/cart/cart_event.dart'
-    as cart_event;
 import 'package:restaurantmobile/presentation/blocs/app_config/app_config_cubit.dart';
 
 class CartScreen extends StatelessWidget {
@@ -229,83 +227,55 @@ class _CartSummaryFooter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Suma total calculada de forma segura con punto flotante (double)
-    final total = items.fold<double>(
-      0.0,
-      (sum, item) => sum + (item.totalPrice * item.quantity),
-    );
+    // Envolvemos solo el footer en un BlocBuilder para ser reactivos
+    return BlocBuilder<CartBloc, CartState>(
+      builder: (context, state) {
+        // Usamos directamente el total del estado que ya calcula el bloc
+        final total = state.totalAmount; 
 
-    return Container(
-      padding: const EdgeInsets.all(20),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withValues(alpha: 0.05),
-            blurRadius: 10,
-            offset: const Offset(0, -4),
+        return Container(
+          padding: const EdgeInsets.all(20),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withValues(alpha: 0.05),
+                blurRadius: 10,
+                offset: const Offset(0, -4),
+              ),
+            ],
           ),
-        ],
-      ),
-      child: SafeArea(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          child: SafeArea(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
               children: [
-                Text(
-                  l10n['totalLabel']!,
-                  style: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(l10n['totalLabel']!, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                    Text('\$${total.toStringAsFixed(0)}', style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.deepOrange)),
+                  ],
                 ),
-                Text(
-                  '\$${total.toStringAsFixed(0)}',
-                  style: const TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.deepOrange,
+                const SizedBox(height: 16),
+                SizedBox(
+                  width: double.infinity,
+                  height: 52,
+                  child: ElevatedButton(
+                    onPressed: total > 0 ? () { // Bloqueamos si el total es 0
+                      Navigator.of(context).pushNamed('/dataphone_payment', arguments: total);
+                    } : null,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Theme.of(context).primaryColor,
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                    ),
+                    child: Text(l10n['processPaymentBtn']!, style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold)),
                   ),
                 ),
               ],
             ),
-            const SizedBox(height: 16),
-            SizedBox(
-              width: double.infinity,
-              height: 52,
-              child: ElevatedButton(
-                onPressed: () {
-                  final cartState = context.read<CartBloc>().state;
-
-                  final total = cartState.totalAmount;
-
-                  Navigator.of(
-                    context,
-                  ).pushNamed('/dataphone_payment', arguments: total);
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Theme.of(
-                    context,
-                  ).primaryColor, // El color naranja actual
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                ),
-                child: Text(
-                  l10n['processPaymentBtn']!,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
+          ),
+        );
+      },
     );
   }
 }

@@ -11,141 +11,142 @@ class DishesGrid extends StatelessWidget {
   final MenuLoaded state;
   const DishesGrid({super.key, required this.state});
 
-  // 🍔 1. Actualizamos esta función para que devuelva objetos con Nombre y Precio
-  List<dynamic> _getAdditionsForCategory(String categoryName) {
-    final nameLower = categoryName.toLowerCase();
+  void _showAdditionsBottomSheet(BuildContext outerContext, Dish dish) {
+    final List<Addition> selectedAdditions = [];
+    // Obtenemos el cubit aquí para usarlo dentro del modal
+    final configCubit = outerContext.read<AppConfigCubit>();
 
-    // Aquí puedes usar tu modelo 'Addition(name: ..., price: ...)' si ya lo tienes creado
-    if (nameLower.contains('carne') || nameLower.contains('meat')) {
-      return [
-        {'name': 'Chimichurri', 'price': 2500},
-        {'name': 'Guacamole', 'price': 4000},
-        {'name': 'Papas fritas', 'price': 5500},
-      ];
-    } else if (nameLower.contains('postre') || nameLower.contains('dessert')) {
-      return [
-        {'name': 'Extra de Arequipe', 'price': 2000},
-        {'name': 'Extra de Chocolate', 'price': 2000},
-        {'name': 'Crema Batida', 'price': 1500},
-      ];
-    } else if (nameLower.contains('bebida') || nameLower.contains('drink')) {
-      return [
-        {'name': 'Hielo extra', 'price': 500},
-        {'name': 'Limón', 'price': 800},
-        {'name': 'Leche condensada', 'price': 2500},
-      ];
-    }
-    return [
-      {'name': 'Porción extra', 'price': 3000},
-    ];
-  }
-
-void _showAdditionsBottomSheet(BuildContext outerContext, Dish dish) {
-  final List<Addition> selectedAdditions = [];
-  // Obtenemos el cubit aquí para usarlo dentro del modal
-  final configCubit = outerContext.read<AppConfigCubit>();
-
-  showModalBottomSheet(
-    context: outerContext,
-    isScrollControlled: true,
-    backgroundColor: Colors.white,
-    shape: const RoundedRectangleBorder(
-      borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
-    ),
-    builder: (modalContext) {
-      return StatefulBuilder(
-        builder: (localContext, setModalState) {
-          return Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Center(
-                  child: Container(
-                    width: 40, height: 4, margin: const EdgeInsets.only(bottom: 16),
-                    decoration: BoxDecoration(color: Colors.grey[300], borderRadius: BorderRadius.circular(2)),
-                  ),
-                ),
-                Text(
-                  dish.name,
-                  style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.black),
-                ),
-                Text(
-                  configCubit.translate('enhance_dish'), // 👈 Traducido
-                  style: const TextStyle(color: Colors.grey, fontSize: 14),
-                ),
-                const SizedBox(height: 16),
-
-                if (dish.additions.isEmpty)
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 20),
-                    child: Center(
-                      child: Text(
-                        configCubit.translate('no_additions'), // 👈 Traducido
-                        style: const TextStyle(color: Colors.grey, fontStyle: FontStyle.italic),
+    showModalBottomSheet(
+      context: outerContext,
+      isScrollControlled: true,
+      backgroundColor: Colors.white,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+      ),
+      builder: (modalContext) {
+        return StatefulBuilder(
+          builder: (localContext, setModalState) {
+            return Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Center(
+                    child: Container(
+                      width: 40,
+                      height: 4,
+                      margin: const EdgeInsets.only(bottom: 16),
+                      decoration: BoxDecoration(
+                        color: Colors.grey[300],
+                        borderRadius: BorderRadius.circular(2),
                       ),
                     ),
-                  )
-                else
-                  ...dish.additions.map((addition) {
-                    final isSelected = selectedAdditions.contains(addition);
-                    return Container(
-                      margin: const EdgeInsets.only(bottom: 8),
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.grey[200]!),
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: CheckboxListTile(
-                        title: Text(addition.name, style: const TextStyle(fontWeight: FontWeight.w500, color: Colors.black)),
-                        secondary: Text(
-                          '+ \$${addition.price.toStringAsFixed(0)}',
-                          style: TextStyle(color: Colors.grey[700], fontWeight: FontWeight.bold),
-                        ),
-                        value: isSelected,
-                        activeColor: Colors.deepOrange,
-                        controlAffinity: ListTileControlAffinity.leading,
-                        onChanged: (bool? checked) {
-                          setModalState(() {
-                            checked == true ? selectedAdditions.add(addition) : selectedAdditions.remove(addition);
-                          });
-                        },
-                      ),
-                    );
-                  }),
+                  ),
+                  Text(
+                    dish.name,
+                    style: const TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
+                  Text(
+                    configCubit.translate('enhance_dish'), // 👈 Traducido
+                    style: const TextStyle(color: Colors.grey, fontSize: 14),
+                  ),
+                  const SizedBox(height: 16),
 
-                const SizedBox(height: 20),
-                SizedBox(
-                  width: double.infinity,
-                  height: 50,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(backgroundColor: Colors.deepOrange, shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14))),
-                    onPressed: () {
-                      Navigator.pop(modalContext);
-                      outerContext.read<CartBloc>().add(AddDishEvent(dish: dish, additions: selectedAdditions));
-                      
-                      ScaffoldMessenger.of(outerContext).showSnackBar(
-                        SnackBar(
-                          content: Text(
-                            "${configCubit.translate('added_snack')}${dish.name}", // 👈 Traducido
+                  if (dish.additions.isEmpty)
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 20),
+                      child: Center(
+                        child: Text(
+                          configCubit.translate('no_additions'),
+                          style: const TextStyle(
+                            color: Colors.grey,
+                            fontStyle: FontStyle.italic,
                           ),
                         ),
+                      ),
+                    )
+                  else
+                    ...dish.additions.map((addition) {
+                      final isSelected = selectedAdditions.contains(addition);
+                      return Container(
+                        margin: const EdgeInsets.only(bottom: 8),
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.grey[200]!),
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: CheckboxListTile(
+                          title: Text(
+                            addition.name,
+                            style: const TextStyle(fontWeight: FontWeight.w500),
+                          ),
+                          secondary: Text(
+                            '+ \$${addition.price.toStringAsFixed(0)}',
+                          ),
+                          value: isSelected,
+                          activeColor: Colors.deepOrange,
+                          controlAffinity: ListTileControlAffinity.leading,
+                          onChanged: (bool? checked) {
+                            setModalState(() {
+                              checked == true
+                                  ? selectedAdditions.add(addition)
+                                  : selectedAdditions.remove(addition);
+                            });
+                          },
+                        ),
                       );
-                    },
-                    child: Text(
-                      configCubit.translate('confirm_add'), // 👈 Traducido
-                      style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+                    }),
+
+                  const SizedBox(height: 20),
+                  SizedBox(
+                    width: double.infinity,
+                    height: 50,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.deepOrange,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(14),
+                        ),
+                      ),
+                      onPressed: () {
+                        Navigator.pop(modalContext);
+                        outerContext.read<CartBloc>().add(
+                          AddDishEvent(
+                            dish: dish,
+                            additions: selectedAdditions,
+                          ),
+                        );
+
+                        ScaffoldMessenger.of(outerContext).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                              "${configCubit.translate('added_snack')}${dish.name}", // 👈 Traducido
+                            ),
+                          ),
+                        );
+                      },
+                      child: Text(
+                        configCubit.translate('confirm_add'), // 👈 Traducido
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
                   ),
-                ),
-              ],
-            ),
-          );
-        },
-      );
-    },
-  );
-}
+                ],
+              ),
+            );
+          },
+        );
+      },
+    );
+  }
 
   // 📱 3. Tu GridView Principal intacto y funcional
   @override
@@ -193,20 +194,24 @@ void _showAdditionsBottomSheet(BuildContext outerContext, Dish dish) {
                       builder: (context) {
                         final finalAssetPath = dish.imageUrl;
 
-                        return Image.asset(
-                          finalAssetPath,
-                          fit: BoxFit.cover,
-                          errorBuilder: (context, error, stackTrace) {
-                            return Container(
-                              color: theme.colorScheme.surfaceContainerHighest,
-                              child: Icon(
-                                Icons.fastfood_rounded,
-                                size: 50,
-                                color: theme.colorScheme.primary,
-                              ),
-                            );
-                          },
-                        );
+                        return // Ejemplo de implementación robusta
+                              SizedBox(
+                                width: 150, // Define un ancho fijo
+                                height: 150, // Define un alto fijo
+                                child: Image.network(
+                                  dish.imageUrl,
+                                  fit: BoxFit.cover,
+                                  loadingBuilder: (context, child, loadingProgress) {
+                                    if (loadingProgress == null) return child;
+                                    return const Center(child: CircularProgressIndicator());
+                                  },
+                                  errorBuilder: (context, error, stackTrace) {
+                                    // Esto te dirá exactamente por qué falla en la consola de depuración
+                                    print('Error cargando imagen: $error'); 
+                                    return const Icon(Icons.broken_image, size: 50, color: Colors.grey);
+                                  },
+                                ),
+                              );
                       },
                     ),
                   ),

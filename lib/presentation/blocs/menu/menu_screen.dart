@@ -23,7 +23,9 @@ class MenuScreen extends StatelessWidget {
         // 👈 Volvemos a un solo BlocProvider clásico
         create: (context) =>
             MenuBloc(menuRepository: context.read<MenuRepository>())..add(
-              LoadMenuEvent(localeCode: currentLocale),
+              LoadMenuEvent(localeCode: currentLocale,
+                            restaurantId: '00000000-0000-0000-0000-000000000001',
+                            branchId: '00000000-0000-0000-0000-000000000011'),
             ), // Tu fix del idioma se queda intacto 🚀
         child: const _MenuView(),
       ),

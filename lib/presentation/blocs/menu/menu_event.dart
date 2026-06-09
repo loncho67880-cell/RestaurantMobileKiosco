@@ -9,10 +9,16 @@ abstract class MenuEvent extends Equatable {
 
 class LoadMenuEvent extends MenuEvent {
   final String? localeCode;
-  const LoadMenuEvent({this.localeCode});
+  final String restaurantId;
+  final String branchId;
+  const LoadMenuEvent({
+    this.localeCode,
+    required this.restaurantId,
+    required this.branchId,
+  });
 
   @override
-  List<Object?> get props => [localeCode];
+  List<Object?> get props => [localeCode, restaurantId, branchId];
 }
 
 class SelectCategoryEvent extends MenuEvent {
