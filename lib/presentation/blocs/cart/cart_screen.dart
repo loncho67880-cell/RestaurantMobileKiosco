@@ -7,36 +7,13 @@ import 'package:restaurantmobile/presentation/blocs/app_config/app_config_cubit.
 class CartScreen extends StatelessWidget {
   const CartScreen({super.key});
 
-  // 🌍 Diccionario local multiidioma mapeado para esta pantalla
-  static const Map<String, Map<String, String>> _localizedStrings = {
-    'es': {
-      'orderSummary': 'Resumen del Pedido',
-      'emptyCart': 'Tu carrito está vacío',
-      'additionsTitle': 'Adiciones:',
-      'totalLabel': 'Total General:',
-      'processPaymentBtn': 'Procesar Pago',
-    },
-    'en': {
-      'orderSummary': 'Order Summary',
-      'emptyCart': 'Your cart is empty',
-      'additionsTitle': 'Additions:',
-      'totalLabel': 'Grand Total:',
-      'processPaymentBtn': 'Process Payment',
-    },
-  };
-
   @override
   Widget build(BuildContext context) {
-    // (Nota: Si tu propiedad en el estado se llama 'languageCode' o similar, ajusta 'localeCode')
     final configCubit = context.read<AppConfigCubit>();
-    final String currentLang = configCubit.state.localeCode;
-
-    // Filtramos los textos según el idioma activo del usuario
-    final l10n = _localizedStrings[currentLang] ?? _localizedStrings['es']!;
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(l10n['orderSummary']!),
+        title: Text(configCubit.translate('orderSummary')),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () =>
@@ -48,7 +25,7 @@ class CartScreen extends StatelessWidget {
           if (state.items.isEmpty) {
             return Center(
               child: Text(
-                l10n['emptyCart']!,
+                configCubit.translate('emptyCart'),
                 style: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w500,
@@ -66,13 +43,12 @@ class CartScreen extends StatelessWidget {
                     final item = state.items[index];
                     return _CartItemTile(
                       item: item,
-                      itemIndex: index,
-                      l10n: l10n,
+                      itemIndex: index
                     );
                   },
                 ),
               ),
-              _CartSummaryFooter(items: state.items, l10n: l10n),
+              _CartSummaryFooter(items: state.items),
             ],
           );
         },
@@ -84,16 +60,16 @@ class CartScreen extends StatelessWidget {
 class _CartItemTile extends StatelessWidget {
   final CartItem item;
   final int itemIndex;
-  final Map<String, String> l10n;
 
   const _CartItemTile({
     required this.item,
-    required this.itemIndex,
-    required this.l10n,
+    required this.itemIndex
   });
 
   @override
   Widget build(BuildContext context) {
+    final configCubit = context.read<AppConfigCubit>();
+
     return Card(
       margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       elevation: 2,
@@ -177,7 +153,7 @@ class _CartItemTile extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(bottom: 6),
                 child: Text(
-                  l10n['additionsTitle']!,
+                  configCubit.translate('additionsTitle'),
                   style: TextStyle(
                     fontSize: 13,
                     fontWeight: FontWeight.bold,
@@ -221,12 +197,13 @@ class _CartItemTile extends StatelessWidget {
 
 class _CartSummaryFooter extends StatelessWidget {
   final List<CartItem> items;
-  final Map<String, String> l10n;
 
-  const _CartSummaryFooter({required this.items, required this.l10n});
+  const _CartSummaryFooter({required this.items});
 
   @override
   Widget build(BuildContext context) {
+    final configCubit = context.read<AppConfigCubit>();
+
     // Envolvemos solo el footer en un BlocBuilder para ser reactivos
     return BlocBuilder<CartBloc, CartState>(
       builder: (context, state) {
@@ -252,7 +229,7 @@ class _CartSummaryFooter extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(l10n['totalLabel']!, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                    Text(configCubit.translate('totalLabel'), style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                     Text('\$${total.toStringAsFixed(0)}', style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.deepOrange)),
                   ],
                 ),
@@ -268,7 +245,7 @@ class _CartSummaryFooter extends StatelessWidget {
                       backgroundColor: Theme.of(context).primaryColor,
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                     ),
-                    child: Text(l10n['processPaymentBtn']!, style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold)),
+                    child: Text(configCubit.translate('processPaymentBtn'), style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold)),
                   ),
                 ),
               ],
