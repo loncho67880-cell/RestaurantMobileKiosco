@@ -157,112 +157,55 @@ class DishesGrid extends StatelessWidget {
     final orientation = MediaQuery.of(context).orientation;
     final int crossAxisCount = (orientation == Orientation.portrait) ? 2 : 3;
 
-    return GridView.builder(
-      padding: const EdgeInsets.all(16),
-      itemCount: activeCategory.dishes.length,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: crossAxisCount,
-        crossAxisSpacing: 16,
-        mainAxisSpacing: 16,
-        childAspectRatio: 0.8,
+    return // En tu archivo dishes_grid.dart
+    GridView.builder(
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        childAspectRatio:
+            0.75, // Ajusta este valor para controlar la altura de la card
       ),
+      itemCount: activeCategory.dishes.length,
       itemBuilder: (context, index) {
         final dish = activeCategory.dishes[index];
 
         return Card(
-          elevation: 4,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
-          ),
-          color: theme.colorScheme.surface,
-          child: InkWell(
-            onTap: () {
-              // Llama correctamente a la función interna renovada
-              _showAdditionsBottomSheet(context, dish);
-            },
-            borderRadius: BorderRadius.circular(16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Expanded(
-                  flex: 10,
-                  child: ClipRRect(
-                    borderRadius: const BorderRadius.vertical(
-                      top: Radius.circular(16),
-                    ),
-                    child: Builder(
-                      builder: (context) {
-                        final finalAssetPath = dish.imageUrl;
-
-                        return // Ejemplo de implementación robusta
-                              SizedBox(
-                                width: 150, // Define un ancho fijo
-                                height: 150, // Define un alto fijo
-                                child: Image.network(
-                                  dish.imageUrl,
-                                  fit: BoxFit.cover,
-                                  loadingBuilder: (context, child, loadingProgress) {
-                                    if (loadingProgress == null) return child;
-                                    return const Center(child: CircularProgressIndicator());
-                                  },
-                                  errorBuilder: (context, error, stackTrace) {
-                                    // Esto te dirá exactamente por qué falla en la consola de depuración
-                                    print('Error cargando imagen: $error'); 
-                                    return const Icon(Icons.broken_image, size: 50, color: Colors.grey);
-                                  },
-                                ),
-                              );
-                      },
-                    ),
-                  ),
+          clipBehavior: Clip
+              .antiAlias, // Recomendado para que la imagen no se salga de la esquina
+          child: Column(
+            children: [
+              // La imagen ocupa el espacio dinámico disponible
+              Expanded(
+                child: Image.network(
+                  dish.imageUrl,
+                  fit: BoxFit.cover, // Para que la imagen cubra bien el espacio
+                  width: double.infinity,
                 ),
-                // Detalles del Plato
-                Expanded(
-                  flex: 4,
-                  child: Padding(
-                    padding: const EdgeInsets.all(12),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              dish.name,
-                              style: const TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18,
-                              ),
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                            const SizedBox(height: 4),
-                            Text(
-                              dish.description,
-                              style: TextStyle(
-                                color: Colors.grey[600],
-                                fontSize: 13,
-                              ),
-                              maxLines: 2,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ],
-                        ),
-                        Text(
-                          "\$${dish.price.toStringAsFixed(0)}",
-                          style: TextStyle(
-                            color: theme.colorScheme.primary,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
-                          ),
-                        ),
-                      ],
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      dish.name,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(fontWeight: FontWeight.bold),
                     ),
-                  ),
+                    const SizedBox(height: 4),
+                    // Aquí el Flexible soluciona el desbordamiento
+                    Flexible(
+                      child: Text(
+                        '\$${dish.price.toStringAsFixed(0)}',
+                        style: const TextStyle(fontWeight: FontWeight.bold),
+                        overflow: TextOverflow
+                            .ellipsis, // Si el texto es muy largo, añade "..."
+                      ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         );
       },

@@ -5,7 +5,7 @@ import '../../domain/models/category_menu.dart';
 
 class MenuRepository {
   // Ajusta esta URL a tu configuración (recuerda que en emulador Android 'localhost' es '10.0.2.2')
-  final String baseUrl = "https://ca96-2803-1800-1317-69fb-41b2-4960-4bd0-4f84.ngrok-free.app/api";
+  final String baseUrl = "https://14c1-191-156-1-39.ngrok-free.app/api";
 
   Future<List<CategoryMenu>> loadCategories(
     String localeCode,
