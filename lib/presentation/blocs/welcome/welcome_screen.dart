@@ -55,7 +55,7 @@ class _WelcomeScreenView extends StatelessWidget {
           behavior: HitTestBehavior.opaque,
           child: Stack(
             children: [
-              // Fondo
+              // Fondo (Igual que antes)
               Container(
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
@@ -69,74 +69,89 @@ class _WelcomeScreenView extends StatelessWidget {
                 ),
               ),
 
-              // Contenido Principal
-              Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Icons.restaurant_menu_rounded,
-                      size: 140,
-                      color: theme.colorScheme.primary,
-                    ),
-                    const SizedBox(height: 40),
+              LayoutBuilder(
+                builder: (context, constraints) {
+                  return SingleChildScrollView(
+                    child: ConstrainedBox(
+                      constraints: BoxConstraints(
+                        minHeight: constraints
+                            .maxHeight, // Asegura que ocupe toda la pantalla
+                      ),
+                      child: Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            // --- Tus widgets (Icon, Text, Container, etc) ---
+                            // Todo tu contenido actual va aquí dentro
+                            Icon(
+                              Icons.restaurant_menu_rounded,
+                              size: 140,
+                              color: theme.colorScheme.primary,
+                            ),
+                            const SizedBox(height: 40),
+                            // Título Traducido dinámicamente
+                            Text(
+                              configCubit.translate('welcome_title'),
+                              style: theme.textTheme.displayMedium?.copyWith(
+                                fontWeight: FontWeight.w300,
+                                color: theme.colorScheme.onSurface.withValues(
+                                  alpha: 0.7,
+                                ),
+                              ),
+                            ),
 
-                    // Título Traducido dinámicamente
-                    Text(
-                      configCubit.translate('welcome_title'),
-                      style: theme.textTheme.displayMedium?.copyWith(
-                        fontWeight: FontWeight.w300,
-                        color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
-                      ),
-                    ),
+                            // Nombre del Restaurante
+                            Text(
+                              configState.restaurantName,
+                              style: theme.textTheme.displayLarge?.copyWith(
+                                color: theme.colorScheme.primary,
+                                letterSpacing: 1.2,
+                              ),
+                            ),
+                            const SizedBox(height: 60),
 
-                    // Nombre del Restaurante
-                    Text(
-                      configState.restaurantName,
-                      style: theme.textTheme.displayLarge?.copyWith(
-                        color: theme.colorScheme.primary,
-                        letterSpacing: 1.2,
-                      ),
-                    ),
-                    const SizedBox(height: 60),
-
-                    // Botón de Acción Traducido
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 40,
-                        vertical: 20,
-                      ),
-                      decoration: BoxDecoration(
-                        color: theme.colorScheme.secondary,
-                        borderRadius: BorderRadius.circular(50),
-                        boxShadow: [
-                          BoxShadow(
-                            color: theme.colorScheme.secondary.withValues(alpha: 0.4),
-                            blurRadius: 20,
-                            offset: const Offset(0, 10),
-                          ),
-                        ],
-                      ),
-                      child: Text(
-                        configCubit.translate('welcome_call_to_action'),
-                        style: theme.textTheme.bodyLarge?.copyWith(
-                          color: theme.colorScheme.onSecondary,
-                          fontWeight: FontWeight.bold,
+                            // El botón ahora no causará overflow
+                            Container(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 40,
+                                vertical: 20,
+                              ),
+                              decoration: BoxDecoration(
+                                color: theme.colorScheme.secondary,
+                                borderRadius: BorderRadius.circular(50),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: theme.colorScheme.secondary
+                                        .withValues(alpha: 0.4),
+                                    blurRadius: 20,
+                                    offset: const Offset(0, 10),
+                                  ),
+                                ],
+                              ),
+                              child: Text(
+                                configCubit.translate('welcome_call_to_action'),
+                                style: theme.textTheme.bodyLarge?.copyWith(
+                                  color: theme.colorScheme.onSecondary,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                            const SizedBox(height: 40),
+                            Text(
+                              configCubit.translate('welcome_subtitle'),
+                              style: theme.textTheme.bodyMedium?.copyWith(
+                                color: theme.colorScheme.onSurface.withValues(
+                                  alpha: 0.5,
+                                ),
+                                fontStyle: FontStyle.italic,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ),
-                    const SizedBox(height: 40),
-
-                    // Subtítulo Traducido
-                    Text(
-                      configCubit.translate('welcome_subtitle'),
-                      style: theme.textTheme.bodyMedium?.copyWith(
-                        color: theme.colorScheme.onSurface.withValues(alpha: 0.5),
-                        fontStyle: FontStyle.italic,
-                      ),
-                    ),
-                  ],
-                ),
+                  );
+                },
               ),
 
               // Selector de Idioma
