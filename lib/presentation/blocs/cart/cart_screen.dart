@@ -23,15 +23,7 @@ class CartScreen extends StatelessWidget {
       body: BlocBuilder<CartBloc, CartState>(
         builder: (context, state) {
           if (state.items.isEmpty) {
-            return Center(
-              child: Text(
-                configCubit.translate('emptyCart'),
-                style: const TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-            );
+            return Center(child: Text(configCubit.translate('emptyCart')));
           }
 
           return Column(
@@ -39,18 +31,19 @@ class CartScreen extends StatelessWidget {
               Expanded(
                 child: ListView.builder(
                   itemCount: state.items.length,
-                  itemBuilder: (context, index) {
-                    final item = state.items[index];
-                    return _CartItemTile(
-                      item: item,
-                      itemIndex: index
-                    );
-                  },
+                  itemBuilder: (context, index) =>
+                      _CartItemTile(item: state.items[index], itemIndex: index),
                 ),
               ),
-              _CartSummaryFooter(items: state.items),
             ],
           );
+        },
+      ),
+      // Y en el Scaffold, usa el parámetro 'bottomNavigationBar' para el footer
+      bottomNavigationBar: BlocBuilder<CartBloc, CartState>(
+        builder: (context, state) {
+          if (state.items.isEmpty) return const SizedBox.shrink();
+          return _CartSummaryFooter(items: state.items);
         },
       ),
     );
@@ -61,10 +54,7 @@ class _CartItemTile extends StatelessWidget {
   final CartItem item;
   final int itemIndex;
 
-  const _CartItemTile({
-    required this.item,
-    required this.itemIndex
-  });
+  const _CartItemTile({required this.item, required this.itemIndex});
 
   @override
   Widget build(BuildContext context) {
@@ -208,7 +198,7 @@ class _CartSummaryFooter extends StatelessWidget {
     return BlocBuilder<CartBloc, CartState>(
       builder: (context, state) {
         // Usamos directamente el total del estado que ya calcula el bloc
-        final total = state.totalAmount; 
+        final total = state.totalAmount;
 
         return Container(
           padding: const EdgeInsets.all(20),
@@ -223,32 +213,62 @@ class _CartSummaryFooter extends StatelessWidget {
             ],
           ),
           child: SafeArea(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(configCubit.translate('totalLabel'), style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-                    Text('\$${total.toStringAsFixed(0)}', style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.deepOrange)),
-                  ],
-                ),
-                const SizedBox(height: 16),
-                SizedBox(
-                  width: double.infinity,
-                  height: 52,
-                  child: ElevatedButton(
-                    onPressed: total > 0 ? () { // Bloqueamos si el total es 0
-                      Navigator.of(context).pushNamed('/dataphone_payment', arguments: total);
-                    } : null,
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Theme.of(context).primaryColor,
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                    ),
-                    child: Text(configCubit.translate('processPaymentBtn'), style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold)),
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        configCubit.translate('totalLabel'),
+                        style: const TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        '\$${total.toStringAsFixed(0)}',
+                        style: const TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.deepOrange,
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-              ],
+                  const SizedBox(height: 16),
+                  SizedBox(
+                    width: double.infinity,
+                    height: 52,
+                    child: ElevatedButton(
+                      onPressed: total > 0
+                          ? () {
+                              // Bloqueamos si el total es 0
+                              Navigator.of(context).pushNamed(
+                                '/dataphone_payment',
+                                arguments: total,
+                              );
+                            }
+                          : null,
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Theme.of(context).primaryColor,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                      ),
+                      child: Text(
+                        configCubit.translate('processPaymentBtn'),
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         );

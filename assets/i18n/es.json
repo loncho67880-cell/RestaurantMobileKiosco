@@ -10,7 +10,6 @@
   "singleDish": "1 plato seleccionado",
   "multipleDishes": "{count} platos seleccionados",
   "viewOrder": "Ver Pedido",
-  "payment_processing": "Procesando Pago",
   "dataphone_instruction": "Sigue los pasos en el datáfono",
   "dataphone_detail": "Acerca tu tarjeta, usa tu celular o inserta el chip en la terminal de pago física para completar el pedido.",
   "total_to_pay": "Total a pagar:",

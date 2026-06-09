@@ -10,7 +10,6 @@
   "singleDish": "1 dish selected",
   "multipleDishes": "{count} dishes selected",
   "viewOrder": "View Order",
-  "payment_processing": "Processing Payment",
   "dataphone_instruction": "Follow the steps on the terminal",
   "dataphone_detail": "Tap your card, use your phone, or insert the chip into the physical payment terminal to complete the order.",
   "total_to_pay": "Total to pay:",

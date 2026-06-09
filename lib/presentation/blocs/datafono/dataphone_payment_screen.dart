@@ -18,7 +18,7 @@ class DataphonePaymentScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(configCubit.translate('payment_processing')),
+        title: Text(configCubit.translate('processPaymentBtn')),
         centerTitle: true,
         automaticallyImplyLeading: false,
       ),
